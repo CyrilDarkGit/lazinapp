@@ -1,22 +1,26 @@
-<div class="container-app my-3 py-3">
-<div class="mb-2">
-<h1 class="title text-center">Dumb jobs</h1>
-</div>
-<br>
+<div class="container-app">
+<h1 class="title text-center my-3">Dumb jobs</h1>
+<div class="container d-grid cards">
   <% @offers.each do |offer| %>
-  <div class="my-3">
-    <%= link_to offer.name, offer_path(offer) %>
-    <%= link_to "#{offer.unit_price} #{offer.currency}", offer_path(offer) %>
-    <%= link_to offer.location, offer_path(offer) %>
-    <% if offer.photo.attached? %>
-      <%= link_to cl_image_tag(offer.photo.key,
-      width: 400, height: 300, crop: :fill), offer_path(offer) %>
-    <% else %>
-      <%= link_to image_tag("photo_placeholder.png"), offer_path(offer) %>
-    <% end %>
-    <%= link_to offer.overview, offer_path(offer) %>
-  </div>
+    <a href="<%= offer_path(offer)%>">
+      <div class="card-category">
+        <h2><%= offer.name %></h2>
+        <% if offer.photo.attached? %>
+          <%= cl_image_tag(offer.photo.key,width: 100, height: 100, crop: :fill) %>
+        <% else %>
+          <%= image_tag("photo_placeholder.png", width: 100, height: 100, crop: :fill) %>
+        <% end %>
+        <div>
+          <h2><%= "#{offer.unit_price} #{offer.currency}" %></h2>
+          <h2><%= offer.location %></h2>
+        </div>
+        <div class="overflow-hidden">
+          <p><%= offer.overview %></p>
+        </div>
+      </div>
+    </a>
   <% end %>
+</div>
+</div>
 <br>
 <%= link_to "New offer", new_offer_path %>
-</div>
