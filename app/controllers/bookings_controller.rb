@@ -1,13 +1,21 @@
 class BookingsController < ApplicationController
   before_action :set_offer, only: [:new, :create]
 
+  def show
+    @booking = Booking.find(:id)
+    authorize @booking
+  end
+
   def new
     @booking = Booking.new
+    authorize @booking
   end
 
   def create
     @booking = Booking.new(booking_params)
     @booking.offer = @offer
+    @booking.user = current_user
+    authorize @booking
     if @booking.save
       redirect_to offer_path(@offer)
     else
@@ -15,8 +23,17 @@ class BookingsController < ApplicationController
     end
   end
 
+  def edit
+    authorize @booking
+  end
+
+  def update
+    authorize @booking
+  end
+
   def destroy
     @booking = Booking.find(:id)
+    authorize @booking
     @booking.destroy
     redirect_to offer_path(@booking.offer)
   end
