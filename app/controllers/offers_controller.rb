@@ -2,21 +2,25 @@ class OffersController < ApplicationController
   before_action :set_offer, only: [:show, :edit, :update, :destroy]
 
   def index
-    @offers = Offer.all
+    # @offers = Offer.all
+    @offers = policy_scope(Offer)
   end
 
   def show
+    authorize @offer
     # @booking = Bookmark.new
     # @bookings = Booking.all.where(offer: @offer)
   end
 
   def new
     @offer = Offer.new
+    authorize @offer
   end
 
   def create
     @offer = Offer.new(offer_params)
     @offer.user_id = current_user.id
+    authorize @offer
     if @offer.save
       redirect_to offers_path
     else
@@ -25,14 +29,17 @@ class OffersController < ApplicationController
   end
 
   def edit
+    authorize @offer
   end
 
   def update
+    authorize @offer
     @offer.update(offer_params)
     redirect_to offers_path
   end
 
   def destroy
+    authorize @offer
     @offer.destroy
     redirect_to offers_path, status: :see_other
   end
