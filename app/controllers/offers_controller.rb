@@ -8,8 +8,7 @@ class OffersController < ApplicationController
 
   def show
     authorize @offer
-    # @booking = Bookmark.new
-    # @bookings = Booking.all.where(offer: @offer)
+    @bookings = Booking.all.where(offer: @offer)
   end
 
   def new
@@ -51,6 +50,6 @@ class OffersController < ApplicationController
   end
 
   def offer_params
-    params.require(:offer).permit(:name, :unit_price, :overview, :photo, :location, :currency)
+    params.require(:offer).permit(:name, :unit_price, :overview, :photo, :location, :currency, :category)
   end
 end
