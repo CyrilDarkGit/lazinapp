@@ -1,9 +1,22 @@
-<h1>Offers view</h1>
-
-<ul>
+<div class="container-app my-3 py-3">
+<div class="mb-2">
+<h1 class="title text-center">Dumb jobs</h1>
+</div>
+<br>
   <% @offers.each do |offer| %>
-    <li><%= link_to offer.name, offer_path(offer) %></li>
+  <div class="my-3">
+    <%= link_to offer.name, offer_path(offer) %>
+    <%= link_to "#{offer.unit_price} #{offer.currency}", offer_path(offer) %>
+    <%= link_to offer.location, offer_path(offer) %>
+    <% if offer.photo.attached? %>
+      <%= link_to cl_image_tag(offer.photo.key,
+      width: 400, height: 300, crop: :fill), offer_path(offer) %>
+    <% else %>
+      <%= link_to image_tag("photo_placeholder.png"), offer_path(offer) %>
+    <% end %>
+    <%= link_to offer.overview, offer_path(offer) %>
+  </div>
   <% end %>
-</ul>
 <br>
 <%= link_to "New offer", new_offer_path %>
+</div>
