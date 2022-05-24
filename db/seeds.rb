@@ -182,79 +182,61 @@ offer10.save!
 puts "Creating bookings…"
 
 Booking.create!(
-  comment: 'Success guaranteed',
   user: user1,
   offer: offer6,
   date: Date.today,
-  quantity: 1,
-  total_price: 500
+
 )
 
 Booking.create!(
-  comment: "waouh, j\'en ai toujours rêvé !",
   user: user1,
   offer: offer2,
   date: Date.today,
-  quantity: 1,
-  total_price: 500
+
 )
 
 Booking.create!(
-  comment: "Peut-on compter sur votre discrétion ?",
   user: user3,
   offer: offer3,
   date: Date.today,
-  quantity: 1,
-  total_price: 500
+
 )
 
 Booking.create!(
-  comment: 'je suis très intéressé !',
   user: user1,
   offer: offer3,
   date: Date.today,
-  quantity: 1,
-  total_price: 500
+
 )
 
 Booking.create!(
-  comment: "C\'est génial",
   user: user4,
   offer: offer2,
   date: Date.today,
-  quantity: 1,
-  total_price: 500
+
 )
 
 Booking.create!(
-  comment: "I can only say super recommended!",
   user: user2,
   offer: offer7,
   date: Date.today,
-  quantity: 1,
-  total_price: 500
+
 )
 
 Booking.create!(
-  comment: "super job!",
   user: user3,
   offer: offer8,
   date: Date.today,
-  quantity: 1,
-  total_price: 1000
 )
 
 Booking.create!(
-  comment: "Dont know how I manage before this!",
   user: user4,
   offer: offer9,
   date: Date.today,
-  quantity: 1,
-  total_price: 500
+
 )
 
 Booking.create!(
-  comment: "It was all I needed",
   user: user1,
   offer: offer10,
   date: Date.today,
@@ -263,12 +245,9 @@ Booking.create!(
 )
 
 Booking.create!(
-  comment: "AMAZING !",
   user: user2,
   offer: offer8,
   date: Date.today,
-  quantity: 1,
-  total_price: 500
 )
 
 puts " DB created ! "

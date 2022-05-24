@@ -1,1 +1,11 @@
-<h1>i'm a booking!</h1>
+<div class="container-app my-3 py-3">
+  <h2><%= @offer.name %></h2>
+  <p><%= @offer.overview %></p>
+  <p><%= @offer.unit_price %> <%= @offer.currency %></p>
+  <br>
+  <h3>Book offer</h3>
+  <%= simple_form_for [@offer, @booking] do |f| %>
+    <%= f.input :date, label: 'Expected deadline ?'  %>
+    <%= f.submit class: "btn btn-primary border-radius" %>
+  <% end %>
+</div>
