@@ -26,7 +26,7 @@ offer1 = Offer.new(
   user: user1,
   name: 'Je fais la queue à votre place',
   unit_price: 3500,
-  overview: 'Grand magasin ou service adminstratif, je peux faire la queue pour vous n\importe où !',
+  overview: "Grand magasin ou service adminstratif, je peux faire la queue pour vous n'importe où !",
   location: 'Paris',
   currency: 'EUR'
 )
