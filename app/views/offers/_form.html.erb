@@ -7,6 +7,7 @@
   <br>
   <%= simple_form_for(@offer) do |f| %>
     <%= f.input :name, label: 'What is the name of your offer ?' %>
+    <%= f.input :category, label: 'Confirm the category', collection: %w(Study Culture Sport Family Social Pets) %>
     <%= f.input :overview, label: 'Description of the service ?'  %>
     <%= f.input :location, label: 'What is your location/address ?'  %>
     <%= f.input :photo, as: :file %>
