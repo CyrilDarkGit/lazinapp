@@ -4,6 +4,7 @@
 <p><%= @offer.location %></p>
 <p><%= @offer.unit_price %> <%= @offer.currency %></p>
 <p><%= @offer.overview %></p>
+<%= console %>
 <%= cl_image_tag @offer.photo.key, height: 300, width: 400, crop: :fill %>
 
 <%= link_to "Edit", edit_offer_path %>
