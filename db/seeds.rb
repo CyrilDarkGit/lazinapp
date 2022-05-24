@@ -28,6 +28,7 @@ offer1 = Offer.new(
   unit_price: 3500,
   overview: "Grand magasin ou service adminstratif, je peux faire la queue pour vous n'importe où !",
   location: 'Paris',
+  category: %w(Study Culture Sport Family Social Pets).sample,
   currency: 'EUR'
 )
 offer1.photo.attach(
@@ -43,6 +44,7 @@ offer2 = Offer.new(
   unit_price: 1200,
   overview: 'Je swippe pour toi et t\'envoie une pré-sélection de matches',
   location: 'Oberkampf, Paris',
+  category: %w(Study Culture Sport Family Social Pets).sample,
   currency: 'EUR'
 )
 offer2.photo.attach(
@@ -58,6 +60,7 @@ offer3 = Offer.new(
   unit_price: 500,
   overview: 'Tu veux briller devant tes amis sans te fatiguer, je serai bénévole en ton nom !',
   location: 'Oberkampf, Paris',
+  category: %w(Study Culture Sport Family Social Pets).sample,
   currency: 'EUR'
 )
 offer3.photo.attach(
@@ -73,6 +76,7 @@ offer4 = Offer.new(
   unit_price: 200,
   overview: 'Tu as envie de t\'engager en restant dans ton canapé, I\'m your man !',
   location: 'Oberkampf, Paris',
+  category: %w(Study Culture Sport Family Social Pets).sample,
   currency: 'EUR'
 )
 offer4.photo.attach(
@@ -89,6 +93,7 @@ offer5 = Offer.new(
   unit_price: 150,
   overview: 'I apologize for you: message, letters, in person your choice!',
   location: 'Chatelet, Paris',
+  category: %w(Study Culture Sport Family Social Pets).sample,
   currency: 'EUR'
 )
 offer5.photo.attach(
@@ -104,6 +109,7 @@ offer6 = Offer.new(
   unit_price: 500,
   overview: 'Math, History, Geography all topics!  ',
   location: 'Pere-Lachaise, Paris',
+  category: %w(Study Culture Sport Family Social Pets).sample,
   currency: 'EUR'
 )
 
@@ -120,6 +126,7 @@ offer7 = Offer.new(
   unit_price: 300,
   overview: 'Math, History, Geography all topics!  ',
   location: 'Oberkampf, Paris',
+  category: %w(Study Culture Sport Family Social Pets).sample,
   currency: 'EUR'
 )
 
@@ -136,6 +143,7 @@ offer8 = Offer.new(
   unit_price: 1000,
   overview: 'You’ll have the medal and the pics',
   location: 'Brancion, Paris',
+  category: %w(Study Culture Sport Family Social Pets).sample,
   currency: 'EUR'
 )
 
@@ -152,6 +160,7 @@ offer9 = Offer.new(
   unit_price: 1000,
   overview: 'Avoid any confrotation!  ',
   location: 'Saint-Michel, Paris',
+  category: %w(Study Culture Sport Family Social Pets).sample,
   currency: 'EUR'
 )
 
@@ -168,6 +177,7 @@ offer10 = Offer.new(
   unit_price: 100,
   overview: 'We make sure you get in touch!  ',
   location: 'Ternes, Paris',
+  category: %w(Study Culture Sport Family Social Pets).sample,
   currency: 'EUR'
 )
 
@@ -240,8 +250,6 @@ Booking.create!(
   user: user1,
   offer: offer10,
   date: Date.today,
-  quantity: 1,
-  total_price: 100
 )
 
 Booking.create!(
