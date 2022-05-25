@@ -1,26 +1,28 @@
-<div class="title-offer">
-  <h2><%= @offer.name.upcase %></h2>
-  <h2 class="location"><%= @offer.location %></h2>
-</div>
+ <div class="container-show">
+  <div class="title-offer">
+    <h2><%= @offer.name.upcase %></h2>
+    <h2 class="location"><%= @offer.location %></h2>
+  </div>
 
-<div class="container-offer">
-  <%= @offer.photo.attached? ? cl_image_tag(@offer.photo.key, height: 300, width: 800, crop: :fill, class: "top-rounded-image") : image_tag("photo_placeholder.png")%>
-  <div class="info-offer">
-    <h3><%= @offer.unit_price %> <%= @offer.currency %></h3>
-    <p><%= @offer.overview %></p>
-    <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-large" %>
+  <div class="container-offer">
+    <%= @offer.photo.attached? ? cl_image_tag(@offer.photo.key, height: 300, width: 800, crop: :fill, class: "top-rounded-image") : image_tag("photo_placeholder.png")%>
+    <div class="info-offer">
+      <h3><%= @offer.unit_price %> <%= @offer.currency %></h3>
+      <p><%= @offer.overview %></p>
+      <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-large" %>
+    </div>
   </div>
-</div>
-<div class="action-bar">
-  <div class="button-make">
-    <%= link_to "Edit", edit_offer_path %>
-  </div>
-  <div class="button-make">
-    <%= link_to "New booking",  new_offer_booking_path(@offer) %>
-  </div>
-  <div class="button-delete">
-    <%= link_to "Delete",
-    offer_path(@offer),
-    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+  <div class="action-bar">
+    <div class="button-make">
+      <%= link_to "Edit", edit_offer_path %>
+    </div>
+    <div class="button-make">
+      <%= link_to "New booking",  new_offer_booking_path(@offer) %>
+    </div>
+    <div class="button-delete">
+      <%= link_to "Delete",
+      offer_path(@offer),
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+    </div>
   </div>
 </div>
