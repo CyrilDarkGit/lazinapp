@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_offer, only: [:new, :create]
+  scope :upcoming, -> { where('? < Date.today', :date) }
 
   def show
     @booking = Booking.find(:id)

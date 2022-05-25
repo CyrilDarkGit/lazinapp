@@ -1,34 +1,29 @@
 <div class="container-fluid">
 
-
-  <h3><%= "Welcome #{ @user.username }"%></h3>
-  <%= @user.username %>
-  <%= @user.email %>
+  <h2><%= "Welcome #{ @user.username }"%></h2>
 
   <h3><%= "Here are your upcoming bookings"%></h3>
-    <div class="d-flex">
-      <% @user.bookings.each do |booking| %>
-        <div class="card">
-          <%= "Comment #{booking.comment}" %>
+  <div class="container d-flex">
+      <% @user.bookings.select { |booking| booking.upcoming%>
+      <div class="card">
+        <%= cl_image_tag(booking.offer.photo.key, width: 100, height: 100, crop: :fill) %>
+        <%= booking.offer.name %>
+        <%= booking.date %>
+      </div>
+      <% } %>
+  </div>
 
-        </div>
-        <% end %>
-    </div>
+
 
   <h3><%= "Here are your past bookings"%></h3>
-  <div class="d-flex">
-  <% @user.bookings.each do |booking| %>
-    <div class="card">
-      <%= cl_image_tag(booking.offer.photo.key,width: 100, height: 100, crop: :fill) %>
-      <h2><%= booking.offer.name %></h2>
-    <div>
-      <p><%= "#{booking.offer.unit_price} #{booking.offer.currency}" %></p>
-      <p><%= booking.offer.location %></p>
-    </div>
-    <div class="overflow-hidden">
-      <p><%= booking.offer.overview %></p>
-    </div>
+  <div class="container d-flex">
+      <% @user.bookings.select { |booking| booking.date < Date.today %>
+      <div class="card">
+        <%= cl_image_tag(booking.offer.photo.key, width: 100, height: 100, crop: :fill) %>
+        <%= booking.offer.name %>
+        <%= booking.date %>
+      </div>
+      <% }%>
+  </div>
 
- </div>
- <% end %>
 </div>
