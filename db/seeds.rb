@@ -26,6 +26,7 @@ offer1 = Offer.new(
   user: user1,
   name: 'Je fais la queue à votre place',
   unit_price: 3500,
+  category: 'Sport',
   overview: "Grand magasin ou service adminstratif, je peux faire la queue pour vous n'importe où !",
   location: 'Paris',
   category: %w(Study Culture Sport Family Social Pets).sample,
@@ -42,6 +43,7 @@ offer2 = Offer.new(
   user: user2,
   name: 'Professionnel de Tinder',
   unit_price: 1200,
+  category: 'Sport',
   overview: 'Je swippe pour toi et t\'envoie une pré-sélection de matches',
   location: 'Oberkampf, Paris',
   category: %w(Study Culture Sport Family Social Pets).sample,
@@ -58,6 +60,7 @@ offer3 = Offer.new(
   user: user3,
   name: 'Bénévole à votre place',
   unit_price: 500,
+  category: 'Sport',
   overview: 'Tu veux briller devant tes amis sans te fatiguer, je serai bénévole en ton nom !',
   location: 'Oberkampf, Paris',
   category: %w(Study Culture Sport Family Social Pets).sample,
@@ -74,6 +77,7 @@ offer4 = Offer.new(
   user: user3,
   name: 'Donne moi ton slogan, je vais en manif à ta place',
   unit_price: 200,
+  category: 'Sport',
   overview: 'Tu as envie de t\'engager en restant dans ton canapé, I\'m your man !',
   location: 'Oberkampf, Paris',
   category: %w(Study Culture Sport Family Social Pets).sample,
@@ -91,6 +95,7 @@ offer5 = Offer.new(
   user: user1,
   name: 'Apologizing Service',
   unit_price: 150,
+  category: 'Sport',
   overview: 'I apologize for you: message, letters, in person your choice!',
   location: 'Chatelet, Paris',
   category: %w(Study Culture Sport Family Social Pets).sample,
@@ -107,6 +112,7 @@ offer6 = Offer.new(
   user: user2,
   name: 'Your Exam',
   unit_price: 500,
+  category: 'Sport',
   overview: 'Math, History, Geography all topics!  ',
   location: 'Pere-Lachaise, Paris',
   category: %w(Study Culture Sport Family Social Pets).sample,
@@ -124,6 +130,7 @@ offer7 = Offer.new(
   user: user3,
   name: 'Your Homework',
   unit_price: 300,
+  category: 'Sport',
   overview: 'Math, History, Geography all topics!  ',
   location: 'Oberkampf, Paris',
   category: %w(Study Culture Sport Family Social Pets).sample,
@@ -141,6 +148,7 @@ offer8 = Offer.new(
   user: user4,
   name: 'Run most of the race for you',
   unit_price: 1000,
+  category: 'Sport',
   overview: 'You’ll have the medal and the pics',
   location: 'Brancion, Paris',
   category: %w(Study Culture Sport Family Social Pets).sample,
@@ -158,6 +166,7 @@ offer9 = Offer.new(
   user: user1,
   name: 'Proxy Job Quitters',
   unit_price: 1000,
+  category: 'Sport',
   overview: 'Avoid any confrotation!  ',
   location: 'Saint-Michel, Paris',
   category: %w(Study Culture Sport Family Social Pets).sample,
@@ -175,6 +184,7 @@ offer10 = Offer.new(
   user: user2,
   name: 'Family calls - Auntie',
   unit_price: 100,
+  category: 'Sport',
   overview: 'We make sure you get in touch!  ',
   location: 'Ternes, Paris',
   category: %w(Study Culture Sport Family Social Pets).sample,
@@ -236,26 +246,26 @@ Booking.create!(
 Booking.create!(
   user: user3,
   offer: offer8,
-  date: Date.today,
+  date: Date.today
 )
 
 Booking.create!(
   user: user4,
   offer: offer9,
-  date: Date.today,
+  date: Date.today
 
 )
 
 Booking.create!(
   user: user1,
   offer: offer10,
-  date: Date.today,
+  date: Date.today
 )
 
 Booking.create!(
   user: user2,
   offer: offer8,
-  date: Date.today,
+  date: Date.parse('3rd Feb 2022')
 )
 
 puts " DB created ! "
