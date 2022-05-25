@@ -1,27 +1,22 @@
-
 <div class="banner">
-   <div class="row">
-      <div class="col text-center">
+  <div class="row">
+    <div class="col text-center">
       <h1>WELCOME ON LAZ'IN</h1>
       <h3>Find the best people to do what you hate having to do!</h3>
     </div>
   </div>
 </div>
-
 <div class="container d-flex">
-  <div class="card-category" style="background-image: url('https://images.unsplash.com/photo-1652954428516-8aa6b0f2d599?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687')">
-    <h2>ANIMALS</h2>
-  </div>
-
-  <div class="card-category" style="background-image: url('https://images.unsplash.com/photo-1560425946-7d5830202765?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764')">
+  <%= link_to offers_path, class:"card-category", style: "background-image: url('https://images.unsplash.com/photo-1652954428516-8aa6b0f2d599?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687');" do %>
+    <h2>ANIMAUX</h2>
+  <% end %>
+  <%= link_to offers_path, class:"card-category", style: "background-image: url('https://images.unsplash.com/photo-1560425946-7d5830202765?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764');" do %>
     <h2>CULTURE</h2>
-  </div>
-
-  <div class="card-category" style="background-image: url('https://images.unsplash.com/photo-1542622475-904e18612fa1?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470')">
-    <h2>RELATIONAL</h2>
-  </div>
-
-  <div class="card-category" style="background-image: url('https://images.unsplash.com/photo-1552674605-db6ffd4facb5?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470')">
+  <% end %>
+  <%= link_to offers_path, class:"card-category", style: "background-image: url('https://images.unsplash.com/photo-1542622475-904e18612fa1?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470');" do %>
+    <h2>RELATIONNEL</h2>
+  <% end %>
+  <%= link_to offers_path, class:"card-category", style: "background-image: url('https://images.unsplash.com/photo-1552674605-db6ffd4facb5?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470');" do %>
     <h2>SPORT</h2>
-  </div>
+  <% end %>
 </div>
