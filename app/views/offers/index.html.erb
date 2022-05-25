@@ -1,47 +1,48 @@
-<div class="d-flex">
+<div class="">
   <div class="grid_display">
     <div class="d-flex justify-content-between mb-3">
-      <div>
-        <h5 class="">Hello ! What are you looking for today?</h5>
-      </div>
+      <div><h3 class="">Bonjour! Comment peut on t'aider?</h3></div>
       <div class="d-flex justify-content-between align-items">
         <%= render "shared/search_bar"%>
-        <%= link_to "New offer", new_offer_path, class: "btn btn-dark" %>
+        <%= link_to "New offer", new_offer_path, class: "btn" %>
       </div>
     </div>
-    <div class="cards">
-      <% @offers.each do |offer| %>
-      <a href="<%= offer_path(offer)%>">
-      <div class="card">
-        <div class="image_card position-relative">
-          <% if offer.photo.attached? %>
-            <div class="gradient-photo position-absolute w-100 h-100"></div>
-            <%= cl_image_tag(offer.photo.key,width: 100, height: 100, quality: 50) %>
-          <% else %>
-            <%= image_tag("photo_placeholder.png", width: 100, height: 100, quality: 60) %>
-          <% end %>
-        </div>
-        <div class="card_details d-flex justify-content-between align-items">
-          <div>
-            <h3><%= offer.name %></h3>
-            <p class="location">
-              <%= offer.location %>
-            </p>
+    <div class="d-flex">
+          <div class="cards">
+        <% @offers.each do |offer| %>
+        <a href="<%= offer_path(offer)%>">
+        <div class="card">
+          <div class="position-relative">
+            <% if offer.photo.attached? %>
+              <div class="gradient-photo position-absolute w-100 h-100"></div>
+              <%= cl_image_tag(offer.photo.key,width: 100, height: 100, quality: 50) %>
+            <% else %>
+              <%= image_tag("photo_placeholder.png", width: 100, height: 100, quality: 60) %>
+            <% end %>
           </div>
-          <div>
-            <p><%= "#{offer.unit_price}/day "%></p>
-            <p><%= "#{offer.currency}"%></p>
+          <div class="card_details d-flex justify-content-between align-items">
+            <div>
+              <h3><%= offer.name %></h3>
+              <p class="location">
+                <%= offer.location %>
+              </p>
+            </div>
+            <div>
+              <p><%= "#{offer.unit_price}/day "%></p>
+              <p><%= "#{offer.currency}"%></p>
 
+            </div>
           </div>
         </div>
+        </a>
+        <% end %>
       </div>
-      </a>
-      <% end %>
-    </div>
+      <div class="map_style" style="width: 100%; height: 600px;"
+        data-controller="map"
+        data-map-markers-value="<%= @offers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div></div>
   </div>
-  <div class="m-2" style="width: 100%; height: 600px;"
-    data-controller="map"
-    data-map-markers-value="<%= @offers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  <div class="footer">
   </div>
 </div>
