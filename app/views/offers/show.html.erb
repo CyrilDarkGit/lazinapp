@@ -8,15 +8,17 @@
   <div class="info-offer">
     <h3><%= @offer.unit_price %> <%= @offer.currency %></h3>
     <p><%= @offer.overview %></p>
+    <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-large" %>
   </div>
 </div>
 <div class="action-bar">
   <div class="button-make">
     <%= link_to "Edit", edit_offer_path %>
-    <br>
-    <%= link_to "New booking",  new_offer_booking_path(@offer) %>
   </div>
   <div class="button-make">
+    <%= link_to "New booking",  new_offer_booking_path(@offer) %>
+  </div>
+  <div class="button-delete">
     <%= link_to "Delete",
     offer_path(@offer),
     data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
