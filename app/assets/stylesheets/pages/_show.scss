@@ -52,8 +52,8 @@ a {
 .info-offer{
   padding: 15px 25px 14px 25px;
   display: flex;
-  margin-top: 15px;
-  justify-content: space-between;;
+  justify-content: space-between;
+  align-items: center;
 
   h3{
     font-family: futura-pt, sans-serif;
@@ -69,7 +69,6 @@ a {
     font-style: normal;
     font-size: 19px;
     line-height: 21px;
-    padding-bottom: 22px;
     width: 470px;
     margin: 0px;
 
@@ -79,10 +78,10 @@ a {
 
 .action-bar{
   display: flex;
-  width: 820px;
+  width: 839px;
   display: flex;
   justify-content: space-between;
-  padding: 20px 0px 0px 30px;
+  padding: 20px 0px 0px 40px;
 
 
   .button-make{

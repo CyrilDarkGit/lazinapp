@@ -5,7 +5,7 @@
   </div>
 
   <div class="container-offer">
-    <%= @offer.photo.attached? ? cl_image_tag(@offer.photo.key, height: 300, width: 800, crop: :fill, class: "top-rounded-image") : image_tag("photo_placeholder.png")%>
+    <%= @offer.photo.attached? ? cl_image_tag(@offer.photo.key, height: 300, width: 800, quality: 70, class: "top-rounded-image") : image_tag("photo_placeholder.png")%>
     <div class="info-offer">
       <h3><%= @offer.unit_price %> <%= @offer.currency %></h3>
       <p><%= @offer.overview %></p>
