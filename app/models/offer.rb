@@ -6,4 +6,6 @@ class Offer < ApplicationRecord
   validates :currency, inclusion: { within: %w(EUR GBP USD CNY JPY) }
   validates :category, inclusion: { within: %w(Study Culture Sport Family Social Pets) }
   has_one_attached :photo
+  geocoded_by :location
+  after_validation :geocode, if: :will_save_change_to_location?
 end

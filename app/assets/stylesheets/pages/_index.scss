@@ -8,7 +8,7 @@
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 10px 20px;
+  grid-gap: 20px 12px;
   margin-bottom: 30px;
 }
 
@@ -24,15 +24,15 @@
 }
 
 .card_details{
-  padding: 10px 15px 0px 15px;
+  padding: 10px 15px 10px 15px;
   color: black;
 }
 
-img{
+.card img{
   object-fit: cover;
   width: 100%;
-  height: 200px;
   border-radius: 20px 20px 0px 0px;
+
 }
 
 a{
@@ -48,6 +48,7 @@ p{
 h3{
   margin-bottom: 0;
 }
+
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {

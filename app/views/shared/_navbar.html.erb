@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "root/pages", class: "navbar-brand" do %>
+    <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag("/assets/logo_lazin-04.png", :alt => "logo") %>
     <% end %>
 
@@ -10,18 +10,15 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "HOME", root_path, class: "nav-link" %>
-          </li>
           <li class="nav-item">
-            <%= link_to "OFFERS", offers_path, class: "nav-link" %>
+            <%= link_to "TOUTES LES OFFRES", offers_path, class: "nav-link" %>
           </li>
+        <% if user_signed_in? %>
           <li class="nav-item">
             <%= link_to "DASHBOARD", dashboard_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-           <%= link_to 'LOG-OUT', destroy_user_session_path, data:{turbo_method: :delete}, class: "nav-link" %>
+           <%= link_to 'DECONNEXION', destroy_user_session_path, data:{turbo_method: :delete}, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -33,10 +30,10 @@
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            <%= link_to "CONNEXION", new_user_session_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Sign-up", new_user_registration_path, class: "nav-link" %>
+            <%= link_to "CREER UN COMPTE", new_user_registration_path, class: "nav-link" %>
           </li>
         <% end %>
       </ul>
