@@ -1,13 +1,13 @@
 class OffersController < ApplicationController
   before_action :set_offer, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_user!, only: :index
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     # @offers = Offer.all
-    if params[:commit].present?
+    if params[:query].present? && params[:query] != nil
+    @offers = policy_scope(Offer.where('name ILIKE ?', "%#{params[:query]}"))
+    elsif params[:commit].present?
       @offers = policy_scope(Offer.where('category ILIKE ?', "%#{params[:commit]}"))
-    elsif params[:query].present?
-      @offers = policy_scope(Offer.where('name ILIKE ?', "%#{params[:query]}"))
     else
       @offers = policy_scope(Offer)
     end
