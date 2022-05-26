@@ -4,8 +4,10 @@ class OffersController < ApplicationController
 
   def index
     # @offers = Offer.all
-    if params[:query].present?
-      @offers = policy_scope(Offer.where("name ILIKE ?", "%#{params[:query]}%"))
+    if params[:commit].present?
+      @offers = policy_scope(Offer.where('category ILIKE ?', "%#{params[:commit]}"))
+    elsif params[:query].present?
+      @offers = policy_scope(Offer.where('name ILIKE ?', "%#{params[:query]}"))
     else
       @offers = policy_scope(Offer)
     end
