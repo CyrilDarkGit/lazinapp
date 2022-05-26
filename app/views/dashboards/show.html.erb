@@ -1,87 +1,96 @@
-<div class="container-fluid m-5">
+<div class="m-3">
+  <h1 class=""><%= "Salut #{ @user.username } !"%></h1>
 
-  <h2 class="pb-3"><%= "Salut #{ @user.username } !"%></h2>
+  <h3>Your Bookings</h3>
 
-  <h4><%= "VALIDATED BOOKINGS TO COME"%></h4>
-  <div class="grid_display">
-    <div class="d-flex m-3 pb-4">
-      <div class="cards">
-        <% @validate_booking.each do |booking| %>
-          <% if booking.date >= Date.today %>
-            <div class="card">
-              <%= cl_image_tag(booking.offer.photo.key, width: 100, height: 100, quality: 60) %>
-              <h6><%= booking.offer.name.upcase %></h6>
-              <div class="d-flex justify-content-center">
+
+    <div class= >
+     <h5>To come !</h5>
+      <div class="d-flex">
+        <div class="">
+          <h5>Validated</h5>
+            <% @validate_booking.each do |booking| %>
+              <% if booking.date >= Date.today %>
+                <div class="">
+                  <%= cl_image_tag(booking.offer.photo.key, width: 100, height: 100, quality: 60) %>
+                  <div class="">
+                    <h6><%= booking.offer.name.upcase %></h6>
+                    <p><%= booking.offer.location %> </p>
+                    <p><%= booking.date.strftime('%a %d %b %Y') %></p>
+                    <%= link_to "Cancel", declined_booking_path(booking), data: { turbo_method: :patch }%>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+        </div>
+
+        <div class="">
+          <h5>Pending</h5>
+            <% @pending_booking.each do |booking| %>
+              <% if booking.date >= Date.today %>
+                <div class="">
+                  <%= cl_image_tag(booking.offer.photo.key, width: 100, height: 100, quality: 60) %>
+                  <div class="">
+                  <h6><%= booking.offer.name.upcase %></h6>
+                    <p><%= booking.offer.location %> </p>
+                    <p><%= booking.date.strftime('%a %d %b %Y') %></p>
+                    <%= link_to "Cancel", declined_booking_path(booking), data: { turbo_method: :patch }%>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+        </div>
+
+      </div>
+
+      <div>
+        <h5>Past Bookings</h5>
+          <div class="">
+            <% @past_bookings.each do |booking| %>
+              <div class="">
+                <%= cl_image_tag(booking.offer.photo.key, width: 100, height: 100, quality: 60) %>
+                <div class="">
+                <h6><%= booking.offer.name.upcase %></h6>
                 <p><%= booking.offer.location %> </p>
                 <p><%= booking.date.strftime('%a %d %b %Y') %></p>
-                <%= link_to "Accept", accepted_booking_path(booking), data: { turbo_method: :patch } %>
-                <%= link_to "Deny", declined_booking_path(booking), data: { turbo_method: :patch }%>
               </div>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-
-  <h4><%= "PENDING BOOKINGS TO COME"%></h4>
-  <div class="grid_display">
-    <div class="d-flex m-3">
-    <div class="cards">
-      <% @pending_booking.each do |booking| %>
-        <% if booking.date >= Date.today %>
-          <div class="card">
-            <%= cl_image_tag(booking.offer.photo.key, width: 100, height: 100, quality: 60) %>
-            <h6><%= booking.offer.name.upcase %></h6>
-            <div class="d-flex justify-content-center">
-              <p><%= booking.offer.location %> </p>
-              <p><%= booking.date.strftime('%a %d %b %Y') %></p>
-              <%= link_to "Accept", accepted_booking_path(booking), data: { turbo_method: :patch } %>
-              <%= link_to "Deny", declined_booking_path(booking), data: { turbo_method: :patch }%>
-            </div>
+            <% end %>
           </div>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
-
-
-  <h4><%= "PAST BOOKINGS"%></h4>
-  <div class="grid_display">
-    <div class="d-flex m-3">
-      <div class="cards">
-        <% @past_bookings.each do |booking| %>
-          <div class="card">
-            <%= cl_image_tag(booking.offer.photo.key, width: 100, height: 100, quality: 60) %>
-            <h6><%= booking.offer.name.upcase %></h6>
-            <div class="d-flex justify-content-center">
-            <p><%= booking.offer.location %> </p>
-            <p><%= booking.date.strftime('%a %d %b %Y') %></p>
-          </div>
-        <% end %>
       </div>
+
     </div>
-  </div>
+
+
+
+
+
+
+
+
+
+
+
 
   <h4><%= "I'M THE SELLER AND I HAVE TO VALIDATE OR CANCEL"%></h4>
   <div class="grid_display">
-    <div class="d-flex m-3">
-      <div class="cards">
+    <div class="">
+      <div class="">
         <% @rented_offers.each do |booking| %>
-          <div class="card">
+          <div class="">
             <%= cl_image_tag(booking.offer.photo.key, width: 100, height: 100, quality: 60) %>
             <h6><%= booking.offer.name.upcase %></h6>
-            <div class="d-flex justify-content-center">
+            <div class="">
               <p><%= booking.offer.location %> </p>
               <p><%= booking.date.strftime('%a %d %b %Y') %></p>
-              <%= link_to "Accept", accepted_booking_path(booking), data: { turbo_method: :patch } %>
-              <%= link_to "Deny", declined_booking_path(booking), data: { turbo_method: :patch }%>
+              <%= booking.status %>
+              <% if booking.status == "pending" %>
+                <%= link_to "Accept", accepted_booking_path(booking), data: { turbo_method: :patch } %>
+                <%= link_to "Deny", declined_booking_path(booking), data: { turbo_method: :patch }%>
+              <% end %>
             </div>
           </div>
         <% end %>
       </div>
     </div>
   </div>
-
-
 </div>
