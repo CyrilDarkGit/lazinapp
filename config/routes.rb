@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   end
   resources :bookings, only: :destroy
   get 'dashboard', to: 'dashboards#show', as: :dashboard
+  patch ''
 
 end

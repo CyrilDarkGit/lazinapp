@@ -1,39 +1,52 @@
 <div class="container-fluid m-5">
 
+
+
+
   <h2 class="pb-3"><%= "Salut #{ @user.username } !"%></h2>
 
   <h4><%= "Voici la liste de tes prochaines résas"%></h4>
+  <div class="grid_display">
   <div class="d-flex m-3 pb-4">
+  <div class="cards">
     <% @upcoming_bookings.each do |booking| %>
-      <div class="card">
-        <div class="text-center">
+
+        <div class="card">
+                <%= cl_image_tag(booking.offer.photo.key, width: 100, height: 100, quality: 60) %>
+                <h6><%= booking.offer.name.upcase %></h6>
+                <div class="d-flex justify-content-center">
+                <p><%= booking.offer.location %> </p>
+                <p><%= booking.date.strftime('%a %d %b %Y') %></p>
+                <%= link_to "Validate", path, class: "btn" %>
+            </div>
+             </div>
+      <% end %>
+
+        </div>
+    </div>
+
+
+
+
+  <h4><%= "Et ici, les résas passées"%></h4>
+  <div class="grid_display">
+    <div class="d-flex m-3">
+    <div class="cards">
+      <% @past_bookings.each do |booking| %>
+
+        <div class="card">
                 <%= cl_image_tag(booking.offer.photo.key, width: 100, height: 100, quality: 60) %>
                 <h6><%= booking.offer.name.upcase %></h6>
                 <div class="d-flex justify-content-center">
                 <p><%= booking.offer.location %> </p>
                 <p><%= booking.date.strftime('%a %d %b %Y') %></p>
             </div>
+             </div>
       <% end %>
+
         </div>
     </div>
-  </div>
 
 
 
-  <h4><%= "Et ici, les résas passées"%></h4>
-<div class="d-flex m-3">
-      <% @past_bookings.each do |booking| %>
- <div class="card">
- <div class="text-center">
-              <%= cl_image_tag(booking.offer.photo.key, width: 100, height: 100, quality: 60) %>
-              <h6><%= booking.offer.name.upcase %></h6>
-              <div class="d-flex justify-content-center">
-              <p><%= booking.offer.location %></p>
-              <p><%= booking.date.strftime('%a %d %b %Y') %></p>
-         </div>
-              </div>
-            </div>
-      <% end %>
-  </div>
-</div>
 </div>

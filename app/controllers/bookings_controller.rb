@@ -28,6 +28,18 @@ class BookingsController < ApplicationController
     authorize @booking
   end
 
+  def validate
+    @booking = Booking.find(params[:id])
+    @booking.user = current_user
+    @booking.status = 'validé'
+    authorize @booking
+    if @booking.save
+      redirect_to dashboard_path
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
   def update
     authorize @booking
   end
