@@ -47,6 +47,7 @@ p{
 font-weight: medium;
 padding-right: 5px;
 padding-left: 20px;
+font-size: 16px;
 }
 
 h3{
@@ -101,6 +102,6 @@ h3{
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
   .cards {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
