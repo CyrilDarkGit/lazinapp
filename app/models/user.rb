@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :offers
   has_many :bookings
   validates :email, uniqueness: true
+  has_one_attached :photo
 
   # Renvoie les offers que j'ai booké
   has_many :booked_offers, through: :bookings, source: :offer
