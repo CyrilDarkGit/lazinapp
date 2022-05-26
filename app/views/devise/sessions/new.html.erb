@@ -1,5 +1,5 @@
-<h2>Log in</h2>
-
+<div class="container-app my-5 py-3">
+<h2 class="font-weight-bold">Log in</h2>
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: {turbo: false}) do |f| %>
   <div class="form-inputs">
     <%= f.input :email,
@@ -13,8 +13,9 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
+    <%= f.button :submit, "Log in", class: "btn btn-dark" %>
   </div>
 <% end %>
-
+<br>
 <%= render "devise/shared/links" %>
+</div>
