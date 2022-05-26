@@ -1,4 +1,5 @@
 <div class="container-all d-flex">
+
   <div class="container-show">
     <div class="title-offer">
       <h2><%= @offer.name.upcase %></h2>
@@ -13,6 +14,7 @@
         <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-large" %>
       </div>
     </div>
+
     <div class="action-bar">
       <div class="edit-button d-flex">
         <% if policy(@offer).destroy? %>
@@ -25,9 +27,9 @@
             data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
           </div>
         <% end %>
-          <div class="button-make">
-            <%= link_to "Reserver cette offre",  new_offer_booking_path(@offer) %>
-          </div>
+      </div>
+      <div class="button-make">
+        <%= link_to "Reserver cette offre",  new_offer_booking_path(@offer) %>
       </div>
     </div>
   </div>
@@ -35,9 +37,10 @@
   <div class="booking-card">
     <h3>Booking for <br>"<%= @offer.name.upcase %>"</h3>
     <div class="booking-form">
-      <%= simple_form_for [@offer, @booking] do |f| %>
-        <%= f.input :date, label: 'Expected deadline ?', class: "label-form" %>
-        <%= f.submit class: "btn btn-primary border-radius" %>
+
+      <%= simple_form_for [@offer, @booking], data: { controller: 'flatpickr' } do |f| %>
+        <%= f.input :date, as: :string, required: false, input_html: {class: 'datepicker'} %>
+        <%= f.submit 'Book now!', class: 'btn btn-primary' %>
       <% end %>
     </div>
   </div>
