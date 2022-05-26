@@ -1,9 +1,17 @@
 class OffersController < ApplicationController
   before_action :set_offer, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     # @offers = Offer.all
-    @offers = policy_scope(Offer)
+    if params[:query].present? && params[:query] != nil
+    @offers = policy_scope(Offer.where('name ILIKE ?', "%#{params[:query]}"))
+    elsif params[:commit].present?
+      @offers = policy_scope(Offer.where('category ILIKE ?', "%#{params[:commit]}"))
+    else
+      @offers = policy_scope(Offer)
+    end
+
     @markers = @offers.geocoded.map do |offer|
       {
         lat: offer.latitude,

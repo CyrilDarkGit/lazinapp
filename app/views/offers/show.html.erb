@@ -13,16 +13,18 @@
     </div>
   </div>
   <div class="action-bar">
-    <div class="button-make">
-      <%= link_to "Edit", edit_offer_path %>
+    <div class="edit-button d-flex">
+      <div class="button-make">
+        <%= link_to "Modifier", edit_offer_path %>
+      </div>
+      <div class="button-delete">
+        <%= link_to "Supprimer",
+        offer_path(@offer),
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+      </div>
     </div>
     <div class="button-make">
-      <%= link_to "New booking",  new_offer_booking_path(@offer) %>
-    </div>
-    <div class="button-delete">
-      <%= link_to "Delete",
-      offer_path(@offer),
-      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+      <%= link_to "Reserver cette offre",  new_offer_booking_path(@offer) %>
     </div>
   </div>
 </div>
