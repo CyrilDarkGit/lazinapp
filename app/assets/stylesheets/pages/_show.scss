@@ -34,7 +34,6 @@ a {
 
 .container-offer{
   width: 800px;
-  height: 100%;
   background-color: #FDFEFF;
   border-radius: 20px;
   margin: 5px 40px;
@@ -88,4 +87,29 @@ a {
     width: 290px;
     justify-content: space-between;
   }
+}
+
+.booking-card{
+  width: 500px;
+  background-color: #FDFEFF;
+  border-radius: 20px;
+  margin: 5px 40px;
+  box-shadow: 0px 2px 4px lightgray;
+  margin: 80px 40px 0px 0px;
+  text-align: center;
+
+  h3{
+    padding-top: 30px;
+    font-family: chaparral-pro, serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 25px;
+
+  }
+
+  booking-form{
+    display: block;
+
+  }
+
 }

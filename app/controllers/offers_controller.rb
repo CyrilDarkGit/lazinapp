@@ -23,6 +23,7 @@ class OffersController < ApplicationController
   def show
     authorize @offer
     @bookings = Booking.all.where(offer: @offer)
+    @booking = Booking.new()
   end
 
   def new
