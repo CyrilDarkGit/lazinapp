@@ -15,20 +15,22 @@ puts "Destroyed DB"
 
 puts "Creating users…"
 
-user1 = User.create!(email: 'test@test.com', username: 'José', password: 'azerty')
+user1 = User.create!(email: 'test@test.com', username: 'Cyril', password: 'azerty')
 user2 = User.create!(email: 'test2@test.com', username: 'Jules', password: 'azerty')
-user3 = User.create!(email: 'test3@test.com', username: 'Cyril', password: 'azerty')
+user3 = User.create!(email: 'test3@test.com', username: 'Marine', password: 'azerty')
 user4 = User.create!(email: 'test4@test.com', username: 'Lina', password: 'azerty')
+
+user1.photo.attach(io: File.open(Rails.root.join('app/assets/images/cyril.png')), filename: 'cyril.png')
 
 puts "Creating offers…"
 
 offer1 = Offer.new(
   user: user1,
-  name: 'Je fais la queue à votre place',
+  name: 'I will stand in the line for you!',
   unit_price: 3500,
-  overview: "Grand magasin ou service adminstratif, je peux faire la queue pour vous n'importe où !",
-  location: 'Paris',
-  category: %w(Study Culture Sport Family Social Pets).sample,
+  overview: "At the mall, at Pôle Emploi or in any other long administration line, I will queue for you anywhere! Try me!",
+  location: "40 Bd Haussmann, 75009 Paris",
+  category: "Other",
   currency: 'EUR'
 )
 offer1.photo.attach(
@@ -39,12 +41,12 @@ offer1.photo.attach(
 offer1.save!
 
 offer2 = Offer.new(
-  user: user2,
-  name: 'Professionnel de Tinder',
+  user: user1,
+  name: "Tinder's professionnal",
   unit_price: 1200,
-  overview: 'Je swippe pour toi et t\'envoie une pré-sélection de matches',
+  overview: "I swipe for you and send you a selection of juicy matches",
   location: 'Oberkampf, Paris',
-  category: %w(Study Culture Sport Family Social Pets).sample,
+  category: "Social",
   currency: 'EUR'
 )
 offer2.photo.attach(
@@ -55,12 +57,12 @@ offer2.photo.attach(
 offer2.save!
 
 offer3 = Offer.new(
-  user: user3,
-  name: 'Bénévole à votre place',
+  user: user1,
+  name: 'I would volunteer for you',
   unit_price: 500,
-  overview: 'Tu veux briller devant tes amis sans te fatiguer, je serai bénévole en ton nom !',
-  location: 'Oberkampf, Paris',
-  category: %w(Study Culture Sport Family Social Pets).sample,
+  overview: 'You want to shine among your friends while seatting in your couch, I will volunteer for you and bring you all the glory.',
+  location: 'Ménilmontant, Paris',
+  category: "Social",
   currency: 'EUR'
 )
 offer3.photo.attach(
@@ -71,12 +73,12 @@ offer3.photo.attach(
 offer3.save!
 
 offer4 = Offer.new(
-  user: user3,
-  name: 'Je vais en manif à ta place',
+  user: user1,
+  name: "I'm going to strike for you",
   unit_price: 200,
-  overview: 'Tu as envie de t\'engager en restant dans ton canapé, I\'m your man !',
-  location: 'Oberkampf, Paris',
-  category: %w(Study Culture Sport Family Social Pets).sample,
+  overview: "You want to commit and fight but you have no time nor balls, I'm your man !",
+  location: 'République, Paris',
+  category: "Other",
   currency: 'EUR'
 )
 offer4.photo.attach(
@@ -91,9 +93,9 @@ offer5 = Offer.new(
   user: user1,
   name: 'Apologizing Service',
   unit_price: 150,
-  overview: 'I apologize for you: message, letters, in person your choice!',
+  overview: 'I apologize for you: message, letters, in person... your choice!',
   location: 'Chatelet, Paris',
-  category: %w(Study Culture Sport Family Social Pets).sample,
+  category: "Social",
   currency: 'EUR'
 )
 offer5.photo.attach(
@@ -109,7 +111,7 @@ offer6 = Offer.new(
   unit_price: 500,
   overview: 'Math, History, Geography all topics!  ',
   location: 'Pere-Lachaise, Paris',
-  category: %w(Study Culture Sport Family Social Pets).sample,
+  category: "Study",
   currency: 'EUR'
 )
 
@@ -121,12 +123,12 @@ offer6.photo.attach(
 offer6.save!
 
 offer7 = Offer.new(
-  user: user3,
+  user: user2,
   name: 'Your Homework',
   unit_price: 300,
   overview: 'Math, History, Geography all topics!  ',
-  location: 'Oberkampf, Paris',
-  category: %w(Study Culture Sport Family Social Pets).sample,
+  location: 'Lyon, France',
+  category: "Study",
   currency: 'EUR'
 )
 
@@ -138,12 +140,12 @@ offer7.photo.attach(
 offer7.save!
 
 offer8 = Offer.new(
-  user: user4,
+  user: user2,
   name: 'Run most of the race for you',
   unit_price: 1000,
-  overview: 'You’ll have the medal and the pics',
-  location: 'Brancion, Paris',
-  category: %w(Study Culture Sport Family Social Pets).sample,
+  overview: "You'll have the medal and the pics",
+  location: 'Louvre, Paris',
+  category: "Sport",
   currency: 'EUR'
 )
 
@@ -155,12 +157,12 @@ offer8.photo.attach(
 offer8.save!
 
 offer9 = Offer.new(
-  user: user1,
+  user: user2,
   name: 'Proxy Job Quitters',
   unit_price: 1000,
-  overview: 'Avoid any confrotation!  ',
+  overview: 'Avoid any confrotation!',
   location: 'Saint-Michel, Paris',
-  category: %w(Study Culture Sport Family Social Pets).sample,
+  category: "Social",
   currency: 'EUR'
 )
 
@@ -177,7 +179,7 @@ offer10 = Offer.new(
   unit_price: 100,
   overview: 'We make sure you get in touch!  ',
   location: 'Ternes, Paris',
-  category: %w(Study Culture Sport Family Social Pets).sample,
+  category: "Family",
   currency: 'EUR'
 )
 
@@ -200,34 +202,6 @@ Booking.create!(
 
 Booking.create!(
   user: user1,
-  offer: offer2,
-  date: Date.today,
-  status: 'pending'
-)
-
-Booking.create!(
-  user: user3,
-  offer: offer3,
-  date: Date.today,
-  status: 'pending'
-)
-
-Booking.create!(
-  user: user1,
-  offer: offer3,
-  date: Date.today,
-  status: 'pending'
-)
-
-Booking.create!(
-  user: user4,
-  offer: offer2,
-  date: Date.today,
-  status: 'pending'
-)
-
-Booking.create!(
-  user: user2,
   offer: offer7,
   date: Date.today,
   status: 'pending'
@@ -235,7 +209,35 @@ Booking.create!(
 
 Booking.create!(
   user: user3,
-  offer: offer8,
+  offer: offer1,
+  date: Date.today,
+  status: 'pending'
+)
+
+Booking.create!(
+  user: user2,
+  offer: offer2,
+  date: Date.today,
+  status: 'pending'
+)
+
+Booking.create!(
+  user: user3,
+  offer: offer3,
+  date: Date.today,
+  status: 'pending'
+)
+
+Booking.create!(
+  user: user3,
+  offer: offer4,
+  date: Date.today,
+  status: 'pending'
+)
+
+Booking.create!(
+  user: user2,
+  offer: offer5,
   date: Date.today,
   status: 'pending'
 )
@@ -249,14 +251,14 @@ Booking.create!(
 )
 
 Booking.create!(
-  user: user1,
+  user: user4,
   offer: offer10,
   date: Date.today,
   status: 'pending'
 )
 
 Booking.create!(
-  user: user2,
+  user: user4,
   offer: offer8,
   date: Date.parse('3rd Feb 2022'),
   status: 'pending'
