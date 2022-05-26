@@ -1,8 +1,38 @@
+h1, h6, h5, h4 ,p , .dashboard_details {
+  font-family: "futura-pt";
+}
+
+h1{
+  margin-left: 250px;
+  margin-bottom: 0;
+}
+
+h6{
+  margin-bottom: 0;
+}
+
+p{
+  font-size:15px;
+}
+
+.cancel_link{
+  opacity: 0.3;
+  font-weight: bold;
+  color: black;
+}
+
+.grid_display{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px 12px;
+}
+
 .dashboard{
   background-color: white;
   margin: auto;
   border-radius: 20px;
-  margin-top: 0px;
+  margin: 0 auto;
+
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   padding-bottom: 10px;
 }
@@ -15,10 +45,11 @@ img{
   border-radius: 20px;
 }
 
-.dashboard_details{
-  font-family: "futura-pt";
-}
-
 .division{
   border-top: 3px solid black;
+}
+
+.hover_card:hover{
+  background-color: aquamarine;
+  opacity:0.1;
 }
