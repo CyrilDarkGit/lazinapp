@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_25_093242) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_25_175243) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -52,6 +52,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_25_093242) do
     t.integer "note_buyer"
     t.text "comment_to_buyer"
     t.text "comment_to_seller"
+    t.string "status"
     t.index ["offer_id"], name: "index_bookings_on_offer_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end

@@ -22,5 +22,13 @@ class BookingPolicy < ApplicationPolicy
     record.user == user
   end
 
+  def accepted?
+    record.offer.user == user
+  end
+
+  def declined?
+    record.offer.user == user
+  end
+
 
 end

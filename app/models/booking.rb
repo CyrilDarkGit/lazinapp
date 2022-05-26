@@ -1,8 +1,7 @@
 class Booking < ApplicationRecord
+  STATUSES = ['pending', 'validate', 'decline']
   belongs_to :user
   belongs_to :offer
   validates :date, presence: true
-
-   scope :upcoming, -> { where('? <= Date.today', :date) }
-
+  validates :status, inclusion: { within: STATUSES }
 end

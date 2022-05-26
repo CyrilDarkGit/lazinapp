@@ -15,20 +15,22 @@
     </div>
     <div class="action-bar">
       <div class="edit-button d-flex">
-        <div class="button-make">
-          <%= link_to "Modifier", edit_offer_path %>
-        </div>
-        <div class="button-delete">
-          <%= link_to "Supprimer",
-          offer_path(@offer),
-          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
-        </div>
+        <% if policy(@offer).destroy? %>
+          <div class="button-make">
+            <%= link_to "Modifier", edit_offer_path %>
+          </div>
+          <div class="button-delete">
+            <%= link_to "Supprimer",
+            offer_path(@offer),
+            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+          </div>
       </div>
       <div class="button-make">
         <%= link_to "Reserver cette offre",  new_offer_booking_path(@offer) %>
       </div>
-    </div>
+    <% end %>
   </div>
+</div>
 
   <div class="booking-card">
     <h3>Booking for <br>"<%= @offer.name.upcase %>"</h3>
