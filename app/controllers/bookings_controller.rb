@@ -15,7 +15,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.offer = @offer
     @booking.user = current_user
-    @booking.status = 'en attente'
+    @booking.status = 'pending'
     authorize @booking
     if @booking.save
       redirect_to dashboard_path
@@ -28,17 +28,7 @@ class BookingsController < ApplicationController
     authorize @booking
   end
 
-  def validate
-    @booking = Booking.find(params[:id])
-    @booking.user = current_user
-    @booking.status = 'validé'
-    authorize @booking
-    if @booking.save
-      redirect_to dashboard_path
-    else
-      render :new, status: :unprocessable_entity
-    end
-  end
+
 
   def update
     authorize @booking
@@ -49,6 +39,20 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.destroy
     redirect_to offer_path(@booking.offer)
+  end
+
+  def accepted
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    @booking.update(status: "accepted")
+    redirect_to dashboard_path
+  end
+
+  def declined
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    @booking.update(status: "declined")
+    redirect_to dashboard_path
   end
 
   private

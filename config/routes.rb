@@ -10,6 +10,11 @@ Rails.application.routes.draw do
   end
   resources :bookings, only: :destroy
   get 'dashboard', to: 'dashboards#show', as: :dashboard
-  patch ''
-
+  resources :bookings do
+    member do
+      # patch "/accepted", to: "bookings#accepted"
+      patch :accepted
+      patch :declined
+    end
+  end
 end
