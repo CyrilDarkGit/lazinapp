@@ -6,13 +6,15 @@
 
 .cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 20px 12px;
   margin-bottom: 30px;
 }
 
 .location{
   font-family: "futura-pt";
+  font-size: 15px;
+  opacity: 0.8;
 }
 
 // .overview{
@@ -102,6 +104,6 @@ h3{
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
   .cards {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
