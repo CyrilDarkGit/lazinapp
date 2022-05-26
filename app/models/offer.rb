@@ -1,5 +1,5 @@
 class Offer < ApplicationRecord
-  CATEGORIES = %w(Study Culture Sport Family Social Pets)
+  CATEGORIES = %w(Study Culture Sport Family Social Pets Other)
   belongs_to :user
   has_many :bookings, dependent: :destroy
   validates :name, length: { minimum: 5, maximum: 40 }
