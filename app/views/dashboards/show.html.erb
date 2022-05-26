@@ -1,12 +1,10 @@
-<div class="m-3">
-  <h1 class=""><%= "Salut #{ @user.username } !"%></h1>
+<div class="container">
+  <div class="col-12 col-xs-12 col-md-8 col-lg-8">
+    <div class="row justify-content-center dashboard">
+      <h1 class=""><%= "Hello #{ @user.username } !"%></h1>
+      <h5>Here is a list of your bookings</h5>
 
-  <h3>Your Bookings</h3>
-
-
-    <div class= >
-     <h5>To come !</h5>
-      <div class="d-flex">
+      <div class="">
         <div class="">
           <h5>Validated</h5>
             <% @validate_booking.each do |booking| %>
@@ -14,7 +12,7 @@
                 <div class="">
                   <%= cl_image_tag(booking.offer.photo.key, width: 100, height: 100, quality: 60) %>
                   <div class="">
-                    <h6><%= booking.offer.name.upcase %></h6>
+                    <h6><%= booking.offer.name %></h6>
                     <p><%= booking.offer.location %> </p>
                     <p><%= booking.date.strftime('%a %d %b %Y') %></p>
                     <%= link_to "Cancel", declined_booking_path(booking), data: { turbo_method: :patch }%>
@@ -31,7 +29,7 @@
                 <div class="">
                   <%= cl_image_tag(booking.offer.photo.key, width: 100, height: 100, quality: 60) %>
                   <div class="">
-                  <h6><%= booking.offer.name.upcase %></h6>
+                  <h6><%= booking.offer.name %></h6>
                     <p><%= booking.offer.location %> </p>
                     <p><%= booking.date.strftime('%a %d %b %Y') %></p>
                     <%= link_to "Cancel", declined_booking_path(booking), data: { turbo_method: :patch }%>
@@ -40,56 +38,54 @@
               <% end %>
             <% end %>
         </div>
-
       </div>
 
       <div>
         <h5>Past Bookings</h5>
+        <div class="">
+          <% @past_bookings.each do |booking| %>
+            <div class="card-product">
+              <%= cl_image_tag(booking.offer.photo.key, width: 100, height: 100, quality: 60) %>
+              <div class="">
+              <h6><%= booking.offer.name %></h6>
+              <p><%= booking.offer.location %> </p>
+              <p><%= booking.date.strftime('%a %d %b %Y') %></p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+      <h4><%= "I'M THE SELLER AND I HAVE TO VALIDATE OR CANCEL"%></h4>
+      <div class="">
+        <div class="">
           <div class="">
-            <% @past_bookings.each do |booking| %>
+            <% @rented_offers.each do |booking| %>
               <div class="">
                 <%= cl_image_tag(booking.offer.photo.key, width: 100, height: 100, quality: 60) %>
-                <div class="">
                 <h6><%= booking.offer.name.upcase %></h6>
-                <p><%= booking.offer.location %> </p>
-                <p><%= booking.date.strftime('%a %d %b %Y') %></p>
+                <div class="">
+                  <p><%= booking.offer.location %> </p>
+                  <p><%= booking.date.strftime('%a %d %b %Y') %></p>
+                  <%= booking.status %>
+                  <% if booking.status == "pending" %>
+                    <%= link_to "Accept", accepted_booking_path(booking), data: { turbo_method: :patch } %>
+                    <%= link_to "Deny", declined_booking_path(booking), data: { turbo_method: :patch }%>
+                  <% end %>
+                </div>
               </div>
             <% end %>
           </div>
-      </div>
-
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-  <h4><%= "I'M THE SELLER AND I HAVE TO VALIDATE OR CANCEL"%></h4>
-  <div class="grid_display">
-    <div class="">
-      <div class="">
-        <% @rented_offers.each do |booking| %>
-          <div class="">
-            <%= cl_image_tag(booking.offer.photo.key, width: 100, height: 100, quality: 60) %>
-            <h6><%= booking.offer.name.upcase %></h6>
-            <div class="">
-              <p><%= booking.offer.location %> </p>
-              <p><%= booking.date.strftime('%a %d %b %Y') %></p>
-              <%= booking.status %>
-              <% if booking.status == "pending" %>
-                <%= link_to "Accept", accepted_booking_path(booking), data: { turbo_method: :patch } %>
-                <%= link_to "Deny", declined_booking_path(booking), data: { turbo_method: :patch }%>
-              <% end %>
-            </div>
-          </div>
-        <% end %>
+        </div>
       </div>
     </div>
   </div>
