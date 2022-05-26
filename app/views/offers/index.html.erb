@@ -1,18 +1,16 @@
 <div class="">
   <div class="grid_display">
-    <div class="mb-3">
+    <div class="d-flex justify-content-between">
       <div><h3>Hello! How can we help you today?</h3></div>
+      <h4 class="mb-1"><%= link_to "+ New Offer", new_offer_path, class: "fw-bold text-dark", id: "hover" %></h4>
     </div>
-    <div class="d-flex justify-content-between align-items">
-      <div class ="location">
+    <div class="d-flex justify-content-end align-items">
+      <div class ="location mb-1">
         <%= simple_form_for :search, url: offers_path, method: :get do |f| %>
         <% Offer::CATEGORIES.each do |e| %>
-        <%= f.button :submit, "#{e}" %>
+        <%= f.button :submit, "#{e}", class:"categories", id: "hover" %>
         <% end %>
         <% end %>
-      </div>
-        <div class="">
-        <h5><%= link_to "+ New Offer", new_offer_path, class: "fw-bold text-dark" %></h5>
       </div>
     </div>
     <div class="d-flex">
@@ -30,11 +28,11 @@
           </div>
         <div class="card_details d-flex align-items">
         <div>
-          <p class="mt-1"><%= "#{offer.unit_price.to_i}"%></p>
+          <p class="price mt-1"><%= "#{offer.unit_price.to_i}"%></p>
           <p class="text-center"><%= "#{offer.currency}"%></p>
         </div>
         <div>
-          <h3 class="ps-2"><%= offer.name %></h3>
+          <h3 class="name fw-bold ps-2"><%= offer.name %></h3>
           <p class="location ps-2">
             <%= offer.location %>
           </p>

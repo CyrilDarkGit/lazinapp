@@ -8,15 +8,15 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
-        <li class="nav-item">
-          <%= link_to "ALL OFFERS", offers_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <p class="nav-link"> | </p>
-        </li>
-        <% if user_signed_in? %>
           <li class="nav-item">
-            <%= link_to 'LOG-OUT ', destroy_user_session_path, data:{turbo_method: :delete}, class: "nav-link" %>
+            <%= link_to "Offers", offers_path, class: "nav-link fw-bold text-dark ", id: "hover" %>
+          </li>
+        <% if user_signed_in? %>
+        <li class="nav-item">
+          <p class="nav-link fw-bold text-dark pe-3"> | </p>
+        </li>
+          <li class="nav-item">
+           <%= link_to 'Log Out', destroy_user_session_path, data:{turbo_method: :delete}, class: "nav-link fw-bold text-dark pe-3", id: "hover" %>
           </li>
           <li class="nav-item">
             <%= link_to dashboard_path, class: "" do %>
@@ -29,10 +29,10 @@
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "LOG-IN", new_user_session_path, class: "nav-link" %>
+            <%= link_to "Log In", new_user_session_path, class: "nav-link fw-bold text-dark pe-3", id: "hover" %>
           </li>
           <li class="nav-item">
-            <%= link_to "SIGN-UP", new_user_registration_path, class: "nav-link" %>
+            <%= link_to "Sign Up", new_user_registration_path, class: "nav-link fw-bold text-dark pe-3", id: "hover" %>
           </li>
         <% end %>
       </ul>
