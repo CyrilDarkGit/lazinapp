@@ -195,67 +195,71 @@ Booking.create!(
   user: user1,
   offer: offer6,
   date: Date.today,
-
+  status: 'en attente'
 )
 
 Booking.create!(
   user: user1,
   offer: offer2,
   date: Date.today,
-
+  status: 'en attente'
 )
 
 Booking.create!(
   user: user3,
   offer: offer3,
   date: Date.today,
-
+  status: 'en attente'
 )
 
 Booking.create!(
   user: user1,
   offer: offer3,
   date: Date.today,
-
+  status: 'en attente'
 )
 
 Booking.create!(
   user: user4,
   offer: offer2,
   date: Date.today,
-
+  status: 'en attente'
 )
 
 Booking.create!(
   user: user2,
   offer: offer7,
   date: Date.today,
-
+  status: 'en attente'
 )
 
 Booking.create!(
   user: user3,
   offer: offer8,
-  date: Date.today
+  date: Date.today,
+  status: 'en attente'
 )
 
 Booking.create!(
   user: user4,
   offer: offer9,
-  date: Date.today
+  date: Date.today,
+  status: 'en attente'
 
 )
 
 Booking.create!(
   user: user1,
   offer: offer10,
-  date: Date.today
+  date: Date.today,
+  status: 'en attente'
 )
 
 Booking.create!(
   user: user2,
   offer: offer8,
-  date: Date.parse('3rd Feb 2022')
+  date: Date.parse('3rd Feb 2022'),
+  status: 'en attente'
 )
 
 puts " DB created ! "

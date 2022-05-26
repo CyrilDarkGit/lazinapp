@@ -2,7 +2,7 @@ class BookingsController < ApplicationController
   before_action :set_offer, only: [:new, :create]
 
   def show
-    @booking = Booking.find(:id)
+    @booking = Booking.find(params[:id])
     authorize @booking
   end
 
@@ -15,6 +15,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.offer = @offer
     @booking.user = current_user
+    @booking.status = 'en attente'
     authorize @booking
     if @booking.save
       redirect_to dashboard_path
@@ -32,7 +33,7 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    @booking = Booking.find(:id)
+    @booking = Booking.find(params[:id])
     authorize @booking
     @booking.destroy
     redirect_to offer_path(@booking.offer)
@@ -41,7 +42,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:user_id, :offer_id, :date)
+    params.require(:booking).permit(:user_id, :offer_id, :date, :status)
   end
 
   def set_offer
