@@ -1,34 +1,31 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag("logo_lazin-04.png", :alt => "logo") %>
+      <%= image_tag("/assets/logo_lazin-04.png", :alt => "logo") %>
     <% end %>
-
-    <%= render "shared/search_bar"%>
-
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
           <li class="nav-item">
             <%= link_to "Offers", offers_path, class: "nav-link fw-bold text-dark ", id: "hover" %>
           </li>
         <% if user_signed_in? %>
-          <li class="nav-item">
-            <%= link_to "My Offers", dashboard_path, class: "nav-link fw-bold text-dark", id: "hover" %>
-          </li>
+        <li class="nav-item">
+          <p class="nav-link fw-bold text-dark pe-3"> | </p>
+        </li>
           <li class="nav-item">
            <%= link_to 'Log Out', destroy_user_session_path, data:{turbo_method: :delete}, class: "nav-link fw-bold text-dark pe-3", id: "hover" %>
           </li>
-          <li class="nav-item dropdown">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-            </div>
+          <li class="nav-item">
+            <%= link_to dashboard_path, class: "" do %>
+              <% if current_user.photo.attached? %>
+                <%= cl_image_tag current_user.photo.key, class: "avatar" %>
+              <% else %>
+                <%= image_tag "black_placeholder.jpeg", class: "avatar" %>
+              <% end %>
+            <% end %>
           </li>
         <% else %>
           <li class="nav-item">
@@ -42,3 +39,4 @@
     </div>
   </div>
 </div>
+<% console %>
