@@ -9,7 +9,7 @@
     <div class="container-offer">
       <%= @offer.photo.attached? ? cl_image_tag(@offer.photo.key, height: 300, width: 800, quality: 70, class: "top-rounded-image") : image_tag("photo_placeholder.png")%>
       <div class="info-offer">
-        <h3><%= @offer.unit_price %> <%= @offer.currency %></h3>
+        <h3><%= @offer.unit_price.to_i %> <%= @offer.currency %></h3>
         <p><%= @offer.overview %></p>
         <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-large" %>
       </div>
@@ -39,8 +39,8 @@
     <div class="booking-form">
 
       <%= simple_form_for [@offer, @booking], data: { controller: 'flatpickr' } do |f| %>
-        <%= f.input :date, as: :string, required: false, input_html: {class: 'datepicker'} %>
-        <%= f.submit 'Book now!', class: 'btn btn-primary' %>
+        <%= f.input :date, as: :string, required: false, input_html: {class: 'datepicker'}, placeholder: 'Choose a date'%>
+        <%= f.submit 'Book now!', class: 'button-make', id: 'form-button' %>
       <% end %>
     </div>
   </div>
