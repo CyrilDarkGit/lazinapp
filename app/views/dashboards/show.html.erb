@@ -2,8 +2,9 @@
   <div class="col-12 col-xs-12 col-md-8 col-lg-8">
     <h1 class="mb-3"><%= "Hello #{ @user.username } !"%></h1>
     <div class="row justify-content-center dashboard">
-      <h3 class="fw-bold mt-4 ms-4 mb-4">Your Bookings</h3>
+      <h3 class="fw-bold mt-4 ms-4 mb-4">My Bookings</h3>
       <div class="d-flex justify-content-between">
+
         <div class="ms-3 me-3 dashboard_case">
           <h5>Validated</h5>
             <div class="border-bottom mb-3 me-3 w-100"></div>
@@ -30,11 +31,11 @@
           <div class="border-bottom mb-3 w-100"></div>
             <% @pending_booking.each do |booking| %>
               <% if booking.date >= Date.today %>
-                <div class="d-flex">
+                <div class="d-flex align-items">
                   <div class="dashboard_img">
                     <%= cl_image_tag(booking.offer.photo.key, width: 100, height: 100, quality: 60) %>
                   </div>
-                  <div class="mb-3 ms-3 mb-0 dashboard_details">
+                  <div class="mb-3 ms-3 dashboard_details">
                     <h6 class="fw-bold"><%= booking.offer.name %></h6>
                     <p><%= booking.offer.location %> </p>
                     <p><%= booking.date.strftime('%a %d %b %Y') %></p>
@@ -46,20 +47,26 @@
         </div>
       </div>
 
-      <div>
-        <h5>Past Bookings</h5>
+      <div class="ms-3 me-3 mt-4">
+        <h5 class="ms-3">Past Bookings</h5>
+        <div class="border-bottom ms-3 mb-3 me-3"></div>
         <div class="">
           <% @past_bookings.each do |booking| %>
-            <div class="card-product">
-              <%= cl_image_tag(booking.offer.photo.key, width: 100, height: 100, quality: 60) %>
-              <div class="">
-              <h6><%= booking.offer.name %></h6>
-              <p><%= booking.offer.location %> </p>
-              <p><%= booking.date.strftime('%a %d %b %Y') %></p>
+            <div class="d-flex mb-3 ms-3 ">
+              <div>
+                <%= cl_image_tag(booking.offer.photo.key, width: 100, height: 100, quality: 60) %>
+              </div>
+              <div class="ms-3 mt-1">
+                <h6 class="fw-bold"><%= booking.offer.name %></h6>
+                <p><%= booking.offer.location %> </p>
+                <p><%= booking.date.strftime('%a %d %b %Y') %></p>
+              </div>
             </div>
           <% end %>
         </div>
       </div>
+
+
     </div>
   </div>
 </div>
