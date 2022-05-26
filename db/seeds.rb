@@ -72,7 +72,7 @@ offer3.save!
 
 offer4 = Offer.new(
   user: user3,
-  name: 'Donne moi ton slogan, je vais en manif à ta place',
+  name: 'Je vais en manif à ta place',
   unit_price: 200,
   overview: 'Tu as envie de t\'engager en restant dans ton canapé, I\'m your man !',
   location: 'Oberkampf, Paris',
@@ -195,56 +195,56 @@ Booking.create!(
   user: user1,
   offer: offer6,
   date: Date.today,
-  status: 'en attente'
+  status: 'pending'
 )
 
 Booking.create!(
   user: user1,
   offer: offer2,
   date: Date.today,
-  status: 'en attente'
+  status: 'pending'
 )
 
 Booking.create!(
   user: user3,
   offer: offer3,
   date: Date.today,
-  status: 'en attente'
+  status: 'pending'
 )
 
 Booking.create!(
   user: user1,
   offer: offer3,
   date: Date.today,
-  status: 'en attente'
+  status: 'pending'
 )
 
 Booking.create!(
   user: user4,
   offer: offer2,
   date: Date.today,
-  status: 'en attente'
+  status: 'pending'
 )
 
 Booking.create!(
   user: user2,
   offer: offer7,
   date: Date.today,
-  status: 'en attente'
+  status: 'pending'
 )
 
 Booking.create!(
   user: user3,
   offer: offer8,
   date: Date.today,
-  status: 'en attente'
+  status: 'pending'
 )
 
 Booking.create!(
   user: user4,
   offer: offer9,
   date: Date.today,
-  status: 'en attente'
+  status: 'pending'
 
 )
 
@@ -252,14 +252,14 @@ Booking.create!(
   user: user1,
   offer: offer10,
   date: Date.today,
-  status: 'en attente'
+  status: 'pending'
 )
 
 Booking.create!(
   user: user2,
   offer: offer8,
   date: Date.parse('3rd Feb 2022'),
-  status: 'en attente'
+  status: 'pending'
 )
 
 puts " DB created ! "
