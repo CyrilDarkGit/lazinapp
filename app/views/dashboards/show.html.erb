@@ -1,16 +1,16 @@
  <div class="margin_container">
   <div class="d-flex">
-    <div class="gauche">
+    <div>
 
-      <div class="seller justify-content-center dashboard">
+      <div class="seller justify-content-between dashboard">
         <div class="d-flex justify-content-center align-items">
-          <div class="justify-content-center align-items">
+          <div class="justify-content-center align-items mt-5">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-xl" %>
               <h3 class="mb-3">Hello <strong><%=  "#{ @user.username } !"%></strong></h3>
-              <h5 class="mb-1"><%= link_to "+ New Offer", new_offer_path, class: "fw-bold text-dark", id: "hover" %></h5>
           </div>
         </div>
-        <div class="border-bottom mb-3 mt-4 w-100"></div>
+        <div class="d-flex justify-content-start"><h5 class="mt-4 mb-1"><%= link_to "+ New Offer", new_offer_path, class: "fw-bold text-dark", id: "hover" %></h5></div>
+        <div class="border-bottom mb-3 mt-2 w-100"></div>
         <h3 class="mt-4 mb-5">Your have <strong><%= "#{ @accepted_or_pending_offers.count }"%></strong> coming jobs...</h3>
         <% @accepted_or_pending_offers.each do |booking| %>
           <div class="d-flex">
@@ -22,8 +22,8 @@
               <p><%= booking.offer.location %> </p>
               <p><%= booking.date.strftime('%a %d %b %Y') %></p>
               <% if booking.status == "pending" %>
-                <%= link_to "Accept", accepted_booking_path(booking), data: { turbo_method: :patch }, class:"cancel_link" %>
-                <%= link_to "Decline", declined_booking_path(booking), data: { turbo_method: :patch }, class:"cancel_link"%>
+                <%= link_to "Accept", accepted_booking_path(booking), data: { turbo_method: :patch }, id: "hover", class:"cancel_link" %>
+                <%= link_to "Decline", declined_booking_path(booking), data: { turbo_method: :patch }, id: "hover", class:"cancel_link"%>
               <% end %>
             </div>
           </div>
@@ -48,7 +48,7 @@
                     <h6 class="fw-bold"><%= booking.offer.name %></h6>
                     <p><%= booking.offer.location %> </p>
                     <p><%= booking.date.strftime('%a %d %b %Y') %></p>
-                    <%= link_to "Cancel", declined_booking_path(booking), data: { turbo_method: :patch }, class:"cancel_link"%>
+                    <%= link_to "Cancel", declined_booking_path(booking), data: { turbo_method: :patch }, id: "hover", class:"cancel_link"%>
                   </div>
                 </div>
               <% end %>
@@ -76,7 +76,7 @@
         </div>
       </div>
 
-      <div class="ms-3 me-3 mt-4">
+      <div class="ms-3 me-3 mt-1">
         <h5 class="ms-3">Past reservations</h5>
         <div class="border-bottom ms-3 mb-3 me-1"></div>
         <div class="">
