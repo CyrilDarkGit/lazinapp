@@ -22,9 +22,12 @@ class OffersController < ApplicationController
   end
 
   def show
+    @user = current_user
     authorize @offer
-    @bookings = Booking.all.where(offer: @offer)
     @booking = Booking.new()
+    if @user != nil
+      @bookings = @user.rented_offers.select { |booking| booking.offer == @offer } + @user.bookings.select { |booking| booking.offer == @offer}
+    end
   end
 
   def new
