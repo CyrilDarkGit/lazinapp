@@ -157,22 +157,22 @@ offer8.photo.attach(
   )
 offer8.save!
 
-offer9 = Offer.new(
-  user: user2,
-  name: 'Proxy Job Quitters',
-  unit_price: 1000,
-  overview: 'Avoid any confrotation!',
-  location: 'Saint-Michel, Paris',
-  category: "Social",
-  currency: 'EUR'
-)
+# offer9 = Offer.new(
+#   user: user2,
+#   name: 'Proxy Job Quitters',
+#   unit_price: 1000,
+#   overview: 'Avoid any confrotation!',
+#   location: 'Saint-Michel, Paris',
+#   category: "Social",
+#   currency: 'EUR'
+# )
 
-offer9.photo.attach(
-  io: URI.open('https://firsthand.co/_next/image?url=https%3A%2F%2Fmedia2.vault.com%2F16443%2Fwomen_h.jpg&w=1920&q=75'),
-  filename: 'anyname.jpg', # use the extension of the attached file here (found at the end of the url)
-  content_type: 'image/jpg'
-  )
-offer9.save!
+# offer9.photo.attach(
+#   io: URI.open('https://firsthand.co/_next/image?url=https%3A%2F%2Fmedia2.vault.com%2F16443%2Fwomen_h.jpg&w=1920&q=75'),
+#   filename: 'anyname.jpg', # use the extension of the attached file here (found at the end of the url)
+#   content_type: 'image/jpg'
+#   )
+# offer9.save!
 
 offer10 = Offer.new(
   user: user2,
