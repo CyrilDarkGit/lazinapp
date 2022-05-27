@@ -35,11 +35,13 @@ offer1 = Offer.new(
   currency: 'EUR'
 )
 offer1.photo.attach(
-  io: URI.open('https://static.needhelp.fr/photojobbing/88-1599661181.jpg'),
+  io: URI.open('https://static.needhelp.fr/photojobbing/88-1599661181.jpeg'),
   filename: 'anyname.jpg', # use the extension of the attached file here (found at the end of the url)
   content_type: 'image/jpg'
   )
 offer1.save!
+
+puts "offer1 ok"
 
 offer2 = Offer.new(
   user: user1,
@@ -51,7 +53,7 @@ offer2 = Offer.new(
   currency: 'EUR'
 )
 offer2.photo.attach(
-  io: URI.open('https://imgr.cineserie.com/2022/02/simon-leviev-instagram-tinder.jpg?imgeng=/f_jpg/cmpr_0/w_660/h_370/m_cropbox&ver=1'),
+  io: URI.open('https://imgr.cineserie.com/2022/02/simon-leviev-instagram-tinder.jpeg?imgeng=/f_jpg/cmpr_0/w_660/h_370/m_cropbox&ver=1'),
   filename: 'anyname.jpg', # use the extension of the attached file here (found at the end of the url)
   content_type: 'image/jpg'
   )
@@ -100,7 +102,7 @@ offer5 = Offer.new(
   currency: 'EUR'
 )
 offer5.photo.attach(
-  io: URI.open('https://img.huffingtonpost.com/asset/5b5f65a51900001603500b66.jpg?cache=0ha5M2UfIm&ops=scalefit_720_noupscale&format=webp'),
+  io: URI.open('https://img.huffingtonpost.com/asset/5b5f65a51900001603500b66.jpeg?cache=0ha5M2UfIm&ops=scalefit_720_noupscale&format=webp'),
   filename: 'anyname.webp', # use the extension of the attached file here (found at the end of the url)
   content_type: 'image/webp'
   )
@@ -157,22 +159,22 @@ offer8.photo.attach(
   )
 offer8.save!
 
-# offer9 = Offer.new(
-#   user: user2,
-#   name: 'Proxy Job Quitters',
-#   unit_price: 1000,
-#   overview: 'Avoid any confrotation!',
-#   location: 'Saint-Michel, Paris',
-#   category: "Social",
-#   currency: 'EUR'
-# )
+offer9 = Offer.new(
+  user: user2,
+  name: 'Proxy Job Quitters',
+  unit_price: 1000,
+  overview: 'Avoid any confrotation!',
+  location: 'Saint-Michel, Paris',
+  category: "Social",
+  currency: 'EUR'
+)
 
-# offer9.photo.attach(
-#   io: URI.open('https://firsthand.co/_next/image?url=https%3A%2F%2Fmedia2.vault.com%2F16443%2Fwomen_h.jpg&w=1920&q=75'),
-#   filename: 'anyname.jpg', # use the extension of the attached file here (found at the end of the url)
-#   content_type: 'image/jpg'
-#   )
-# offer9.save!
+offer9.photo.attach(
+  io: URI.open('https://firsthand.co/_next/image?url=https%3A%2F%2Fmedia2.vault.com%2F16443%2Fwomen_h.jpg&w=1920&q=75'),
+  filename: 'anyname.jpg', # use the extension of the attached file here (found at the end of the url)
+  content_type: 'image/jpg'
+  )
+offer9.save!
 
 offer10 = Offer.new(
   user: user2,
@@ -265,4 +267,4 @@ Booking.create!(
   status: 'validate'
 )
 
-puts " DB created ! "
+puts " DB created ! "
