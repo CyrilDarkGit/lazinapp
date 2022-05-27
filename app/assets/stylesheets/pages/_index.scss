@@ -1,4 +1,9 @@
 // Import page-specific CSS files here.
+h1, h4, h5, h6, p{
+  font-family: "futura-pt";
+  color: black;
+}
+
 
 .grid_display{
   margin:25px;
@@ -6,7 +11,7 @@
 
 .cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr ;
   grid-gap: 20px 12px;
   margin-bottom: 30px;
 }
@@ -17,12 +22,6 @@
   opacity: 0.8;
 }
 
-// .overview{
-//   padding-left: 15px;
-//   padding-right: 15px;
-//   font-size: 12px;
-//   color: gray;
-// }
 
 .card_details{
   padding: 10px 15px 10px 15px;
