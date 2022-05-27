@@ -21,7 +21,7 @@ user3 = User.create!(email: 'test3@test.com', username: 'Marine', password: 'aze
 user4 = User.create!(email: 'test4@test.com', username: 'Lina', password: 'azerty')
 
 user1.photo.attach(io: File.open(Rails.root.join('app/assets/images/cyril.png')), filename: 'cyril.png')
-user2.photo.attach(io: File.open(Rails.root.join('app/assets/images/BigLebowski')), filename: 'BigLebowski.png')
+user2.photo.attach(io: File.open(Rails.root.join('app/assets/images/BigLebowski.jpeg')), filename: 'BigLebowski.png')
 
 puts "Creating offers…"
 
