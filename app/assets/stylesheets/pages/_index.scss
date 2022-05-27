@@ -68,8 +68,11 @@ h3{
 
 
 #hover:hover{
-  color: rgb(155, 155, 155) !important;
-  text-decoration-line: underline;
+  color: #F9D923 !important;
+}
+
+.card:hover p, .card:hover h3 {
+  color: #36AE7C !important;
 }
 
 // Smallest device
