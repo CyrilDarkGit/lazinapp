@@ -8,7 +8,6 @@ export default class extends Controller {
   }
 
   connect() {
-    console.log("coucou")
     mapboxgl.accessToken = this.apiKeyValue
 
     this.map = new mapboxgl.Map({
@@ -22,9 +21,10 @@ export default class extends Controller {
 
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
-      console.log(marker.longitude)
+      const popup = new mapboxgl.Popup().setHTML(marker.info_window)
       new mapboxgl.Marker()
         .setLngLat([ marker.longitude, marker.latitude ])
+        .setPopup(popup)
         .addTo(this.map)
     })
   }
