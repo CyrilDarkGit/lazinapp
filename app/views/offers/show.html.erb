@@ -29,10 +29,12 @@
           </div>
         <% end %>
       </div>
-      <% unless (policy(@offer).destroy? & @user != nil) %>
-        <div class="button-make">
-          <%= link_to "Reserver cette offre",  offer_path(@offer, wantbooking: "true") %>
-        </div>
+      <% if user_signed_in? %>
+        <% if @offer.user != current_user %>
+          <div class="button-make">
+            <%= link_to "Reserver cette offre",  offer_path(@offer, wantbooking: "true") %>
+          </div>
+        <% end %>
       <% end %>
     </div>
     <% if @user != nil %>
