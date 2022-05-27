@@ -20,7 +20,7 @@ user2 = User.create!(email: 'test2@test.com', username: 'Jules', password: 'azer
 user3 = User.create!(email: 'test3@test.com', username: 'Marine', password: 'azerty')
 user4 = User.create!(email: 'test4@test.com', username: 'Lina', password: 'azerty')
 
-user1.photo.attach(io: File.open(Rails.root.join('app/assets/images/cyril.png')), filename: 'cyril.png')
+user1.photo.attach(io: File.open(Rails.root.join('app/assets/images/patrick-balkany.jpeg')), filename: 'patrick-balkany.jpeg')
 user2.photo.attach(io: File.open(Rails.root.join('app/assets/images/BigLebowski.jpeg')), filename: 'BigLebowski.png')
 
 puts "Creating offers…"
@@ -211,58 +211,58 @@ Booking.create!(
 Booking.create!(
   user: user3,
   offer: offer1,
-  date: Date.today,
+  date: Date.parse('25th Jun 2022'),
   status: 'pending'
 )
 
 Booking.create!(
   user: user2,
   offer: offer2,
-  date: Date.today,
+  date: Date.parse('15th Jun 2022'),
   status: 'pending'
 )
 
 Booking.create!(
   user: user3,
   offer: offer3,
-  date: Date.today,
+  date: Date.parse('16th Jun 2022'),
   status: 'pending'
 )
 
 Booking.create!(
-  user: user3,
-  offer: offer4,
-  date: Date.today,
+  user: user2,
+  offer: offer2,
+  date: Date.parse('12th Jun 2022'),
   status: 'pending'
 )
 
 Booking.create!(
   user: user2,
   offer: offer5,
-  date: Date.today,
+  date: Date.parse('12th May 2022'),
   status: 'pending'
 )
 
 Booking.create!(
-  user: user4,
-  offer: offer9,
-  date: Date.today,
-  status: 'pending'
+  user: user1,
+  offer: offer6,
+  date: Date.parse('10th May 2022'),
+  status: 'decline'
 
 )
 
 Booking.create!(
-  user: user4,
+  user: user1,
   offer: offer10,
-  date: Date.today,
-  status: 'pending'
+  date: Date.parse('14th Jul 2021'),
+  status: 'validate'
 )
 
 Booking.create!(
-  user: user4,
+  user: user1,
   offer: offer8,
-  date: Date.parse('3rd Feb 2022'),
-  status: 'pending'
+  date: Date.parse('3rd Dec 2022'),
+  status: 'validate'
 )
 
 puts " DB created ! "
