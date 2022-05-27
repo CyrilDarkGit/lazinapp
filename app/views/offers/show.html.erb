@@ -1,20 +1,21 @@
 <div class="container-all d-flex">
-
   <div class="container-show">
     <div class="title-offer">
       <h2><%= @offer.name %></h2>
       <h2 class="location"><%= @offer.location %></h2>
     </div>
-
     <div class="container-offer">
       <%= @offer.photo.attached? ? cl_image_tag(@offer.photo.key, height: 300, width: 800, quality: 70, class: "top-rounded-image") : image_tag("photo_placeholder.png")%>
       <div class="info-offer">
         <h3><%= @offer.unit_price.to_i %> <%= @offer.currency %></h3>
         <p><%= @offer.overview %></p>
-        <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-large" %>
+        <% if @offer.user.photo.attached? %>
+          <%= cl_image_tag @offer.user.photo.key, class: "avatar-large" %>
+        <% else %>
+          <%= image_tag "black_placeholder.jpeg", class: "avatar-large" %>
+        <% end %>
       </div>
     </div>
-
     <div class="action-bar">
       <div class="edit-button d-flex">
         <% if policy(@offer).destroy? %>
@@ -28,20 +29,42 @@
           </div>
         <% end %>
       </div>
-      <div class="button-make">
-        <%= link_to "Reserver cette offre",  new_offer_booking_path(@offer) %>
-      </div>
-    </div>
-  </div>
-
-  <div class="booking-card">
-    <h3>Booking for <br><strong>"<%= @offer.name %>"</strong></h3>
-    <div class="booking-form">
-
-      <%= simple_form_for [@offer, @booking], data: { controller: 'flatpickr' } do |f| %>
-        <%= f.input :date, as: :string, required: false, input_html: {class: 'datepicker'}, placeholder: 'Choose a date'%>
-        <%= f.submit 'Book now!', class: 'button-make', id: 'form-button' %>
+      <% unless (policy(@offer).destroy? & @user != nil) %>
+        <div class="button-make">
+          <%= link_to "Reserver cette offre",  offer_path(@offer, wantbooking: "true") %>
+        </div>
       <% end %>
     </div>
+    <% if @user != nil %>
+      <div class="title-offer mt-3">
+        <h2>Your bookings for this offer</h2>
+      </div>
+      <% @bookings.each do |booking| %>
+        <div class="container-offer">
+          <div class="info-offer flex-nowrap">
+            <%= render partial: "shared/avatar", locals: {user: booking.offer.user} %>
+            <p class="ms-2 fw-bold w-auto"><%= booking.offer.user.username%></p>
+            <p class="text-center fw-bold">--></p>
+            <p class="text-start"> Status: <%= booking.status.capitalize %></p>
+            <p class=""><%= booking.date.strftime('%a %d %b %Y') %></p>
+            <p class="text-center fw-bold">--></p>
+            <p class="text-end me-2 fw-bold w-auto"><%= booking.user.username%></p>
+            <%= render partial: "shared/avatar", locals: {user: booking.user} %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
   </div>
+  <% if params[:wantbooking].present? %>
+    <div class="booking-card">
+      <h3>Booking for <br>
+        <strong>"<%= @offer.name %>"</strong></h3>
+      <div class="booking-form">
+        <%= simple_form_for [@offer, @booking], data: { controller: 'flatpickr' } do |f| %>
+          <%= f.input :date, as: :string, required: false, input_html: {class: 'datepicker'}, placeholder: 'Choose a date'%>
+          <%= f.submit 'Book now!', class: 'button-make', id: 'form-button' %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
 </div>

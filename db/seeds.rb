@@ -127,7 +127,7 @@ offer7 = Offer.new(
   name: 'Your Homework',
   unit_price: 300,
   overview: 'Math, History, Geography all topics!  ',
-  location: 'Lyon, France',
+  location: 'Massy palaiseau, France',
   category: "Study",
   currency: 'EUR'
 )

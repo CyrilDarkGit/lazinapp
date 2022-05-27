@@ -15,15 +15,19 @@ class OffersController < ApplicationController
     @markers = @offers.geocoded.map do |offer|
       {
         lat: offer.latitude,
-        lng: offer.longitude
+        lng: offer.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { offer: offer })
       }
     end
   end
 
   def show
+    @user = current_user
     authorize @offer
-    @bookings = Booking.all.where(offer: @offer)
     @booking = Booking.new()
+    if @user != nil
+      @bookings = @user.rented_offers.select { |booking| booking.offer == @offer } + @user.bookings.select { |booking| booking.offer == @offer}
+    end
   end
 
   def new

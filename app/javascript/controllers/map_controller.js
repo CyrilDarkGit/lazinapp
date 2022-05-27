@@ -8,12 +8,11 @@ export default class extends Controller {
   }
 
   connect() {
-    console.log("coucou")
     mapboxgl.accessToken = this.apiKeyValue
 
     this.map = new mapboxgl.Map({
       container: this.element,
-      style: "mapbox://styles/mapbox/streets-v10"
+      style: "mapbox://styles/linabemu/cl3ng6vq0001915mmqde3n80c"
     })
 
     this.#addMarkersToMap()
@@ -22,16 +21,18 @@ export default class extends Controller {
 
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
-      console.log(marker.longitude)
+      const popup = new mapboxgl.Popup().setHTML(marker.info_window)
       new mapboxgl.Marker()
-        .setLngLat([ marker.longitude, marker.latitude ])
+        .setLngLat([ marker.lng, marker.lat ])
+        .setPopup(popup)
         .addTo(this.map)
     })
   }
 
   #fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds()
-    this.markersValue.forEach(marker => bounds.extend([ marker.longitude, marker.latitude ]))
+    this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
+    console.log(this.markersValue)
     this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
   }
 
