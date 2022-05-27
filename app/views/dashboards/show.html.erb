@@ -8,7 +8,7 @@
             <% if @user.photo.attached? %>
               <%= cl_image_tag @user.photo.key, class: "avatar-xl" %>
             <% else %>
-              <%= image_tag "black_placeholder.jpeg", class: "avatar-xl" %>
+              <%= image_tag "black_placeholder.jpg", class: "avatar-xl" %>
             <% end %>
             <h3 class="mb-3">Hello <strong><%=  "#{ @user.username } !"%></strong></h3>
           </div>

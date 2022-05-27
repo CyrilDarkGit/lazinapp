@@ -12,7 +12,7 @@
         <% if @offer.user.photo.attached? %>
           <%= cl_image_tag @offer.user.photo.key, class: "avatar-large" %>
         <% else %>
-          <%= image_tag "black_placeholder.jpeg", class: "avatar-large" %>
+          <%= image_tag "black_placeholder.jpg", class: "avatar-large" %>
         <% end %>
       </div>
     </div>

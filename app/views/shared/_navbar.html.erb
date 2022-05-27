@@ -27,7 +27,7 @@
               <% if current_user.photo.attached? %>
                 <%= cl_image_tag current_user.photo.key, class: "avatar" %>
               <% else %>
-                <%= image_tag "black_placeholder.jpeg", class: "avatar" %>
+                <%= image_tag "black_placeholder.jpg", class: "avatar" %>
               <% end %>
             <% end %>
           </li>

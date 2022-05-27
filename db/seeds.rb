@@ -20,8 +20,8 @@ user2 = User.create!(email: 'test2@test.com', username: 'Jules', password: 'azer
 user3 = User.create!(email: 'test3@test.com', username: 'Marine', password: 'azerty')
 user4 = User.create!(email: 'test4@test.com', username: 'Lina', password: 'azerty')
 
-user1.photo.attach(io: File.open(Rails.root.join('app/assets/images/patrick-balkany.jpeg')), filename: 'patrick-balkany.jpeg')
-user2.photo.attach(io: File.open(Rails.root.join('app/assets/images/BigLebowski.jpeg')), filename: 'BigLebowski.png')
+user1.photo.attach(io: File.open(Rails.root.join('app/assets/images/patrick-balkany.jpg')), filename: 'patrick-balkany.jpg')
+user2.photo.attach(io: File.open(Rails.root.join('app/assets/images/BigLebowski.jpg')), filename: 'BigLebowski.png')
 
 puts "Creating offers…"
 
@@ -35,7 +35,7 @@ offer1 = Offer.new(
   currency: 'EUR'
 )
 offer1.photo.attach(
-  io: URI.open('https://static.needhelp.fr/photojobbing/88-1599661181.jpeg'),
+  io: URI.open('https://static.needhelp.fr/photojobbing/88-1599661181.jpg'),
   filename: 'anyname.jpg', # use the extension of the attached file here (found at the end of the url)
   content_type: 'image/jpg'
   )
@@ -51,7 +51,7 @@ offer2 = Offer.new(
   currency: 'EUR'
 )
 offer2.photo.attach(
-  io: URI.open('https://imgr.cineserie.com/2022/02/simon-leviev-instagram-tinder.jpeg?imgeng=/f_jpg/cmpr_0/w_660/h_370/m_cropbox&ver=1'),
+  io: URI.open('https://imgr.cineserie.com/2022/02/simon-leviev-instagram-tinder.jpg?imgeng=/f_jpg/cmpr_0/w_660/h_370/m_cropbox&ver=1'),
   filename: 'anyname.jpg', # use the extension of the attached file here (found at the end of the url)
   content_type: 'image/jpg'
   )
@@ -100,7 +100,7 @@ offer5 = Offer.new(
   currency: 'EUR'
 )
 offer5.photo.attach(
-  io: URI.open('https://img.huffingtonpost.com/asset/5b5f65a51900001603500b66.jpeg?cache=0ha5M2UfIm&ops=scalefit_720_noupscale&format=webp'),
+  io: URI.open('https://img.huffingtonpost.com/asset/5b5f65a51900001603500b66.jpg?cache=0ha5M2UfIm&ops=scalefit_720_noupscale&format=webp'),
   filename: 'anyname.webp', # use the extension of the attached file here (found at the end of the url)
   content_type: 'image/webp'
   )
