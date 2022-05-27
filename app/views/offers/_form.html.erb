@@ -1,25 +1,37 @@
-<div class="container-app my-3 py-3">
+<div class="container-form">
   <% if @offer.persisted? %>
-    <h3>Update your job offer <% @offer.name %></h3>
+    <div class="font-weight-bold">
+      <h3>Update your job offer <% @offer.name %></h3>
+    </div>
   <% else %>
-    <h3>Please fill your new job offer</h3>
+    <div class="font-weight-bold">
+      <h3>Please fill your new job offer</h3>
+    </div>
   <% end %>
   <br>
-  <%= simple_form_for(@offer) do |f| %>
-    <%= f.input :name, label: 'What is the name of your offer ?' %>
-    <%= f.input :category, label: 'Confirm the category', collection: Offer::CATEGORIES, selected: 1 %>
-    <%= f.input :overview, label: 'Describe the service'  %>
-    <%= f.input :location, label: 'What is your location/address ?'  %>
-    <%= f.input :photo, as: :file, label: 'Do you have a photo of the service?' %>
-    <div class="button-inline">
-      <div class="flex-item-grow">
-        <%= f.input :unit_price %>
+  <div class="new-offer">
+    <%= simple_form_for(@offer) do |f| %>
+      <%= f.input :name, label: 'What is the name of your offer ?' %>
+      <div class="flex-field">
+        <div class="category">
+          <%= f.input :category, label: 'Confirm the category', collection: Offer::CATEGORIES, selected: 1 %>
+        </div>
+        <div class="price">
+          <%= f.input :unit_price %>
+        </div>
+        <div class="currency">
+          <%= f.input :currency, collection: %w(EUR GBP USD CNY JPY), selected: 1 %>
+        </div>
       </div>
-      <%= f.input :currency, collection: %w(EUR GBP USD CNY JPY), selected: 1 %>
-    </div>
-    <%= f.submit class: "btn btn-primary border-radius" %>
-    <br>
-    <br>
-    <p>*Mandatory fields</p>
-  <% end %>
+      <%= f.input :overview, label: 'Describe the service'  %>
+
+      <%= f.input :location, label: 'What is your location/address ?'  %>
+      <%= f.input :photo, as: :file, label: 'Do you have a photo of the service?' %>
+      <div class="create-actions">
+        <p>* Mandatory fields</p>
+        <%= f.submit id: "button-login" %>
+        <p class="invisible">* Mandatory fields</p>
+      </div>
+    <% end %>
+  </div>
 </div>

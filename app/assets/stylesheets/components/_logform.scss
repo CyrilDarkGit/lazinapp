@@ -19,6 +19,9 @@
     padding-bottom: 15px;
   }
 
+  .new-offer{
+    padding: 0px 10px 0px 10px;
+  }
 
   .form-control{
     background-color: #FDFEFF !important;
@@ -26,9 +29,30 @@
 
   }
 
+  .flex-item-grow{
+    margin-right: 10px;
+  }
+
   .form-inputs{
     padding: 0px 20px;
     border-radius: 10px;
+
+  }
+
+  .flex-field{
+    display: flex;
+    justify-content: space-between;
+
+  }
+
+  .category{
+    width: 510px;
+  }
+
+  .form-select{
+    padding: 0px 20px;
+    border-radius: 10px;
+    height: 39px;
 
   }
 
@@ -49,6 +73,7 @@
     justify-content: space-between;
 
   }
+
 
   .input-user{
     width: 380px;
@@ -87,3 +112,16 @@
 
   }
 }
+
+.create-actions{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0px;
+  padding-top: 5px;
+
+  .invisible{
+    color: white;
+  }
+
+ }
