@@ -17,7 +17,7 @@ p{
 }
 
 .cancel_link{
-  opacity: 0.3;
+  opacity: 0.4;
   font-weight: bold;
   color: black;
 }
@@ -35,15 +35,32 @@ p{
   width: 50%;
 }
 
-img{
+.image_dashboard > img{
   border-radius: 20px;
   object-fit: cover;
 }
 
-.dashboard_details{
-  font-family: "futura-pt";
-}
-
 .division{
   border-top: 3px solid black;
+}
+
+.buyer{
+  width: 700px;
+  padding: 30px;
+}
+
+.seller, .profile {
+  width: 480px;
+  margin: 5px 0px;
+  padding: 30px;
+  margin-right: 30px;
+  margin-bottom: 30px;
+}
+
+.margin_container{
+  margin:30px;
+}
+
+.cards_buyer {
+  margin:30px;
 }
