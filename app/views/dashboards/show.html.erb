@@ -17,7 +17,7 @@
           <h5 class="mt-4 mb-1"><%= link_to "+ New Offer", new_offer_path, class: "fw-bold text-dark", id: "hover" %></h5>
         </div>
         <div class="border-bottom mb-3 mt-2 w-100"></div>
-        <h3 class="mt-4 mb-5">Your have <strong><%= "#{ @accepted_or_pending_offers.count }"%></strong> coming jobs...</h3>
+        <h3 class="mt-4 mb-5">You have <strong><%= "#{ @accepted_or_pending_offers.count }"%></strong> coming jobs...</h3>
         <% @accepted_or_pending_offers.each do |booking| %>
           <div class="d-flex">
             <%= link_to offer_path(booking.offer) do %>
