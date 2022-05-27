@@ -8,7 +8,6 @@ a {
 
 .container-show{
   margin-top: 10px;
-
 }
 
 .title-offer{
@@ -20,17 +19,17 @@ a {
   margin: 0px;
 
   h2{
-    font-family: chaparral-pro, serif;
-    font-weight: 400;
+    font-family: futura-pt, sans-serif;
+    font-weight: 600;
     font-style: normal;
-    font-size: 30px;
+    font-size: 32px;
     margin: 0px;
   }
 
   .location{
     color: grey;
     font-family: futura-pt, sans-serif;
-    font-weight: 300;
+    font-weight: 400;
     font-style: normal;
     font-size: 32px;
     padding-bottom: 4px;
@@ -106,7 +105,7 @@ a {
 
   h3{
     padding-top: 30px;
-    font-family: chaparral-pro, serif;
+    font-family: futura-pt, sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size: 25px;
@@ -127,15 +126,20 @@ a {
     background-color: transparent;
     border-radius: 10px;
     height: 100px;
-    font-size: 25px;
+    font-size: 20px;
+    border: 0px;
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+    margin-top: 30px;
+    margin-bottom: 98px;
   }
 
 }
 
 .flatpickr-calendar{
   border-radius: 10px ;
-  top: 254px;
-  left: 981px;
+  top: 157px;
+  left: 960px;
   right: auto;
   width: auto;
 
@@ -147,6 +151,14 @@ a {
       .flatpickr-current-month{
         display: flex;
         justify-content: space-around;
+
+        .numInputWrapper{
+
+
+        }
+
+
+
       }
     }
 

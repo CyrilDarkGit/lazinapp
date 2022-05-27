@@ -5,7 +5,7 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   connect() {
     flatpickr(".datepicker", {
-      minDate: new Date()
+      minDate: "today"
     });
   }
 }
