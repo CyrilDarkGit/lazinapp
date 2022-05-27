@@ -2,7 +2,7 @@
 
   <div class="container-show">
     <div class="title-offer">
-      <h2><%= @offer.name.upcase %></h2>
+      <h2><%= @offer.name %></h2>
       <h2 class="location"><%= @offer.location %></h2>
     </div>
 
@@ -35,7 +35,7 @@
   </div>
 
   <div class="booking-card">
-    <h3>Booking for <br>"<%= @offer.name.upcase %>"</h3>
+    <h3>Booking for <br><strong>"<%= @offer.name %>"</strong></h3>
     <div class="booking-form">
 
       <%= simple_form_for [@offer, @booking], data: { controller: 'flatpickr' } do |f| %>
